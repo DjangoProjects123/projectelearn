@@ -5,7 +5,12 @@
 {% endblock %}
 
 {% block content %}
-    <h1>Sign up</h1>
+<div class="detail page_section"></div>
+<div class="container">
+
+    <div class="row row-eq-height">
+         <div class="col-md-12">
+                <h1>Sign up</h1>
     <div class="module">
         <p>Enter your details to create an account:</p>
         <form action="" method="post">
@@ -13,5 +18,12 @@
             {% csrf_token %}
             <p><input type="submit" value="Create my account"></p>
         </form>
+    </div>  
+         </div>
     </div>
+
+</div>  
 {% endblock %}
+
+ 
+
