@@ -35,7 +35,7 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
-     'livereload',
+    'livereload',
     'django.contrib.staticfiles',
     'courses',
     'students',

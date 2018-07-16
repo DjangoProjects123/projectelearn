@@ -16,7 +16,7 @@ Including another URLconf
 from django.conf.urls import include, url
 from django.contrib import admin
 from django.contrib.auth import views as auth_views
-from courses.views import CourseHomeView
+from courses.views import CourseHomeView, CourseListView
 from django.conf import settings
 from django.conf.urls.static import static
 
@@ -26,6 +26,7 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^course/', include('courses.urls')),
     url(r'^$', CourseHomeView.as_view(), name='course_home'),
+    url(r'^$', CourseListView.as_view(), name='course_list'),
     url(r'^students/', include('students.urls')),
     url(r'^api/', include('courses.api.urls', namespace='api')),
 ]

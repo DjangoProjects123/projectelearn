@@ -31,23 +31,27 @@
 					
                     <!-- Popular Course Item -->
                     {% for s in subjects %}
-                    <a href="{% url "course_list_subject" s.slug %}">
+
 
                         <div class="col-lg-4 course_box" >
 
+
                             <div class="card">
-                                <img class="card-img-top" src="{% static "images/course_1.jpg" %}" alt="https://unsplash.com/@kellybrito">
-                                <div class="card-body text-center">
-                                    <div class="card-title">{{ s.title }}</div>
-                                    <div class="card-text"><span>{{ s.total_courses }} courses</span></div>
-                                </div>
-                                <div class="price_box d-flex flex-row align-items-center">
-                                    
-                                    
-                                </div>
+                                <a href="{% url "course_list_subject" s.slug %}">
+                                    <img class="card-img-top" src="{% static "images/course_1.jpg" %}" alt="https://unsplash.com/@kellybrito">
+                                    <div class="card-body text-center">
+                                        <div class="card-title">{{ s.title }}</div>
+                                        <div class="card-text"><span>{{ s.total_courses }} courses</span></div>
+                                    </div>
+                                    <div class="price_box d-flex flex-row align-items-center">
+
+
+                                    </div>
+                                </a>
                             </div>
+
                         </div>
-                        </a>
+
                     {% endfor %}                                      		
 					
                 </div>
