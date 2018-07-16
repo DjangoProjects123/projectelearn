@@ -1,5 +1,15 @@
 @import url(http://fonts.googleapis.com/css?family=Roboto:500,300,400);
 
+* {
+ box-sizing: border-box;
+}
+
+*:before,
+*:after {
+ box-sizing: border-box;
+}
+
+
 body {
     margin:0;
     font-family:'Roboto', sans-serif;
@@ -263,6 +273,28 @@ ul#course-modules li:hover {
     
 }
 
+
+.block-list{
+    margin-top: 70px;
+}
+
+
+
+/*.super_container {*/
+ /*min-height: 100vh; !* will cover the 100% of viewport *!*/
+ /*overflow: hidden;*/
+ /*display: block;*/
+ /*position: relative;*/
+ /*padding-bottom: 100px; !* height of your footer *!*/
+/*}*/
+
+footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
 #top_margin{
     margin-top: 60px;
+
 }
