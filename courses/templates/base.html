@@ -10,11 +10,11 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="description" content="Course Project">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" type="text/css" href="{% static " css/bootstrap4/bootstrap.min.css " %}">
-	<link href="{% static " plugins/fontawesome-free-5.0.1/css/fontawesome-all.css "%}" rel="stylesheet" type="text/css">
-	<link rel="stylesheet" type="text/css" href="{% static " css/courses_styles.css " %}">
-	<link rel="stylesheet" type="text/css" href="{% static " css/courses_responsive.css " %}">
-	<link rel="stylesheet" type="text/css" href="{% static " css/base.css " %}">
+	<link rel="stylesheet" type="text/css" href="{% static "css/bootstrap4/bootstrap.min.css" %}">
+	<link href="{% static "plugins/fontawesome-free-5.0.1/css/fontawesome-all.css" %}" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" type="text/css" href="{% static "css/courses_styles.css" %}">
+	<link rel="stylesheet" type="text/css" href="{% static "css/courses_responsive.css " %}">
+	<link rel="stylesheet" type="text/css" href="{% static "css/base.css" %}">
 
 </head>
 
@@ -30,7 +30,7 @@
 					<!-- Logo -->
 					<div class="logo_container">
 						<div class="logo">
-							<img src="{% static " images/logo.png " %}" alt="">
+							<img src="{% static "images/logo.png" %}" alt="">
 							<span>course</span>
 						</div>
 					</div>
@@ -51,11 +51,11 @@
 
 								{% if request.user.is_authenticated %}
 								<li class="main_nav_item">
-									<a href="{% url " logout " %}">Sign out</a>
+									<a href="{% url "logout" %}">Sign out</a>
 								</li>
 								{% else %}
 								<li class="main_nav_item">
-									<a href="{% url " login " %}">Sign in</a>
+									<a href="{% url "login" %}">Sign in</a>
 								</li>
 								{% endif %}
 
@@ -98,11 +98,11 @@
 							</li>
 							{% if request.user.is_authenticated %}
 							<li class="main_nav_item">
-								<a href="{% url " logout " %}">Sign out</a>
+								<a href="{% url "logout" %}">Sign out</a>
 							</li>
 							{% else %}
 							<li class="main_nav_item">
-								<a href="{% url " login " %}">Sign in</a>
+								<a href="{% url "login" %}">Sign in</a>
 							</li>
 							{% endif %}
 
@@ -143,11 +143,11 @@
 					</div>
 					<div class="footer_social ml-sm-auto">
 						<ul class="menu_social>
-						<li class=" menu_social_item "><a href="# "><i class="fab fa-pinterest "></i></a></li>
-						<li class="menu_social_item "><a href="# "><i class="fab fa-linkedin-in "></i></a></li>
-						<li class="menu_social_item "><a href="# "><i class="fab fa-instagram "></i></a></li>
-						<li class="menu_social_item "><a href="# "><i class="fab fa-facebook-f "></i></a></li>
-						<li class="menu_social_item "><a href="# "><i class="fab fa-twitter "></i></a></li>
+						<li class=" menu_social_item "><a href="# "><i class="fab fa-pinterest"></i></a></li>
+						<li class="menu_social_item "><a href="# "><i class="fab fa-linkedin-in"></i></a></li>
+						<li class="menu_social_item "><a href="# "><i class="fab fa-instagram"></i></a></li>
+						<li class="menu_social_item "><a href="# "><i class="fab fa-facebook-f"></i></a></li>
+						<li class="menu_social_item "><a href="# "><i class="fab fa-twitter"></i></a></li>
 					</ul>
 				</div>
 			</div>
