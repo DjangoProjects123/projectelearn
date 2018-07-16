@@ -54,3 +54,6 @@ docs/_build/
 # database
 # *.sqlite3
 *.fuse_hidden*
+
+# environment
+env
