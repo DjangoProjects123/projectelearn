@@ -52,7 +52,7 @@ coverage.xml
 docs/_build/
 
 # database
-# *.sqlite3
+*.sqlite3
 *.fuse_hidden*
 
 # environment
