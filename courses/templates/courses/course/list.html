@@ -9,9 +9,11 @@
 {% endblock %}
 
 {% block content %}
+<div class="container" style="margin-top: 140px"></div>
 <div class="container">
     <div class="row row-eq-height">
-        <div class="col-lg-4 nopadding">
+      
+        <div class="col-lg-11">
                 <h1>
                         {% if subject %}
                             {{ subject.title }} courses
@@ -35,8 +37,8 @@
                             {% endfor %}
                         </ul>
                     </div>
-        </div>
-        <div class="col-lg-8 nopadding">
+        
+        
                 <div class="module">
                         {% for course in courses %}
                             {% with subject=course.subject %}
