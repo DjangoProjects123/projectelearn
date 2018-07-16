@@ -26,7 +26,7 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^course/', include('courses.urls')),
     url(r'^$', CourseHomeView.as_view(), name='course_home'),
-    url(r'^$', CourseListView.as_view(), name='course_list'),
+    url(r'^allcourses/$', CourseListView.as_view(), name='course_list'),
     url(r'^students/', include('students.urls')),
     url(r'^api/', include('courses.api.urls', namespace='api')),
 ]
