@@ -273,9 +273,10 @@ ul#course-modules li:hover {
     
 }
 
-.block-list{
-    margin-top: 160px;
-}
+
+/*.block-list{*/
+    /*margin-top: 160px;*/
+/*}*/
 
 
 
@@ -288,7 +289,12 @@ ul#course-modules li:hover {
 /*}*/
 
 footer {
- position: absolute;
- bottom: 0;
- width: 100%;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+#top_margin{
+    margin-top: 60px;
+
 }

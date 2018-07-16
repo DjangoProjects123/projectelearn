@@ -14,6 +14,7 @@
             <div class="row">
                 <div class="col-md-12">
                     <h1>
+
                         {% if subject %}
                             {{ subject.title }} courses
                         {% else %}
@@ -38,22 +39,26 @@
                     </div>
 
                     <div class="module">
+
                         {% for course in courses %}
                             {% with subject=course.subject %}
                                 <h3><a href="{% url "course_detail" course.slug %}">{{ course.title }}</a></h3>
                                 <p>
                                     <a href="{% url "course_lists_subject" subject.slug %}">{{ subject }}</a>.
+
                                     {{ course.total_modules }} modules.
                                     Instructor: {{ course.owner.get_full_name }}
                                 </p>
                             {% endwith %}
                         {% endfor %}
                     </div>
+
                 </div>
             </div>
 
 
         </div>
     </div>
+
 
 {% endblock %}
