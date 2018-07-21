@@ -290,11 +290,13 @@ ul#course-modules li:hover {
 
 footer {
     position: absolute;
-    bottom: 0;
+    bottom: -5px;
     width: 100%;
+    overflow: hidden;
 }
 
 #top_margin{
     margin-top: 60px;
 
 }
+

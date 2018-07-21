@@ -7,12 +7,14 @@ from braces.views import LoginRequiredMixin, PermissionRequiredMixin
 from django.views.generic.base import TemplateResponseMixin, View
 from django.forms.models import modelform_factory
 from django.apps import apps
-from django.db.models import Count
+from django.db.models import Count,Q
 from braces.views import CsrfExemptMixin, JsonRequestResponseMixin
 from .forms import ModuleFormSet
 from .models import Course, Module, Content, Subject
 from students.forms import CourseEnrollForm
 from django.core.cache import cache
+from haystack.query import SearchQuerySet
+from haystack.views import SearchView
 
 
 # Create your views here.
@@ -196,7 +198,10 @@ class CourseListView(TemplateResponseMixin, View):
     model = Course
     template_name = 'courses/course/list.html'
 
+    
+    
     def get(self, request, subject=None):
+        
         subjects = cache.get('all_subjects')
         if not subjects:
             subjects = Subject.objects.annotate(total_courses=Count('courses'))
@@ -214,6 +219,8 @@ class CourseListView(TemplateResponseMixin, View):
             if not courses:
                 courses = all_courses
                 cache.set('all_courses', courses)
+        query = request.GET.get("q")
+        
         return self.render_to_response({'subjects': subjects,
                                         'subject': subject,
                                         'courses': courses})
@@ -225,6 +232,8 @@ class CourseListView(TemplateResponseMixin, View):
 class CourseHomeView(TemplateResponseMixin, View):
     model = Course
     template_name = 'courses/course/home.html'
+
+    
 
     def get(self, request, subject=None):
         subjects = cache.get('all_subjects')
@@ -253,3 +262,8 @@ class CourseDetailView(DetailView):
         context = super(CourseDetailView, self).get_context_data(**kwargs)
         context['enroll_form'] = CourseEnrollForm(initial={'course':self.object})
         return context
+
+
+def search(self, request):
+    template_name = 'search/search.html'
+    return SearchView(template=template_name)(request)

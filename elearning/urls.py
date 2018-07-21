@@ -14,11 +14,14 @@ Including another URLconf
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
 from django.conf.urls import include, url
+
 from django.contrib import admin
 from django.contrib.auth import views as auth_views
 from courses.views import CourseHomeView, CourseListView
 from django.conf import settings
 from django.conf.urls.static import static
+
+
 
 urlpatterns = [
     url(r'^accounts/login/$', auth_views.login, name='login'),
@@ -29,8 +32,11 @@ urlpatterns = [
     url(r'^allcourses/$', CourseListView.as_view(), name='course_list'),
     url(r'^students/', include('students.urls')),
     url(r'^api/', include('courses.api.urls', namespace='api')),
+    url(r'search/', include('haystack.urls')),
+   
+    url(r'^ckeditor/', include('ckeditor_uploader.urls')),
+   
 ]
-
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
 urlpatterns += static(settings.MEDIA_URL,

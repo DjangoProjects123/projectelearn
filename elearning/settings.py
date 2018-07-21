@@ -10,8 +10,10 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/1.11/ref/settings/
 """
 
+
+
 import os
-from django.core.urlresolvers import reverse_lazy
+
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -30,6 +32,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'courses',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -37,11 +40,14 @@ INSTALLED_APPS = [
     'django.contrib.messages',
      'livereload',
     'django.contrib.staticfiles',
-    'courses',
+    'ckeditor',
+    'ckeditor_uploader',
     'students',
     'embed_video',
     # 'memcache_status',
     'rest_framework',
+    'haystack',
+    'whoosh',
    
 ]
 
@@ -133,6 +139,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = '/static/'
+
+from django.core.urlresolvers import reverse_lazy
 LOGIN_REDIRECT_URL = reverse_lazy('student_course_list')
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
@@ -147,4 +156,87 @@ REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': [
         'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
     ]
+}
+
+WHOOSH_INDEX=os.path.join(BASE_DIR,'whoosh/')
+HAYSTACK_CONNECTIONS = {
+    'default': {
+        'ENGINE': 'haystack.backends.whoosh_backend.WhooshEngine',
+        'PATH': WHOOSH_INDEX,
+    },
+}
+
+###################################################################
+           ## CKEDITOR CONFIGURATION ##
+###################################################################
+
+CKEDITOR_BASEPATH = "/home/greendelta/.virtualenvs/elearn/lib/python3.6/site-packages/ckeditor/static/ckeditor"
+CKEDITOR_JQUERY_URL = 'https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js'
+
+CKEDITOR_UPLOAD_PATH = 'uploads/'
+CKEDITOR_IMAGE_BACKEND = "pillow"
+
+CKEDITOR_CONFIGS = {
+    'default': {
+        'skin': 'moono',
+        # 'skin': 'office2013',
+        'toolbar_Basic': [
+            ['Source', '-', 'Bold', 'Italic']
+        ],
+        'toolbar_YourCustomToolbarConfig': [
+            {'name': 'document', 'items': ['Source', '-', 'Save', 'NewPage', 'Preview', 'Print', '-', 'Templates']},
+            {'name': 'clipboard', 'items': ['Cut', 'Copy', 'Paste', 'PasteText', 'PasteFromWord', '-', 'Undo', 'Redo']},
+            {'name': 'editing', 'items': ['Find', 'Replace', '-', 'SelectAll']},
+            {'name': 'forms',
+             'items': ['Form', 'Checkbox', 'Radio', 'TextField', 'Textarea', 'Select', 'Button', 'ImageButton',
+                       'HiddenField']},
+            '/',
+            {'name': 'basicstyles',
+             'items': ['Bold', 'Italic', 'Underline', 'Strike', 'Subscript', 'Superscript', '-', 'RemoveFormat']},
+            {'name': 'paragraph',
+             'items': ['NumberedList', 'BulletedList', '-', 'Outdent', 'Indent', '-', 'Blockquote', 'CreateDiv', '-',
+                       'JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock', '-', 'BidiLtr', 'BidiRtl',
+                       'Language']},
+            {'name': 'links', 'items': ['Link', 'Unlink', 'Anchor']},
+            {'name': 'insert',
+             'items': ['Image', 'Flash', 'Table', 'HorizontalRule', 'Smiley', 'SpecialChar', 'PageBreak', 'Iframe']},
+            '/',
+            {'name': 'styles', 'items': ['Styles', 'Format', 'Font', 'FontSize']},
+            {'name': 'colors', 'items': ['TextColor', 'BGColor']},
+            {'name': 'tools', 'items': ['Maximize', 'ShowBlocks']},
+            {'name': 'about', 'items': ['About']},
+            '/',  # put this to force next toolbar on new line
+            {'name': 'yourcustomtools', 'items': [
+                # put the name of your editor.ui.addButton here
+                'Preview',
+                'Maximize',
+
+            ]},
+        ],
+        'toolbar': 'YourCustomToolbarConfig',  # put selected toolbar config here
+        # 'toolbarGroups': [{ 'name': 'document', 'groups': [ 'mode', 'document', 'doctools' ] }],
+        # 'height': 291,
+        # 'width': '100%',
+        # 'filebrowserWindowHeight': 725,
+        # 'filebrowserWindowWidth': 940,
+        # 'toolbarCanCollapse': True,
+        # 'mathJaxLib': '//cdn.mathjax.org/mathjax/2.2-latest/MathJax.js?config=TeX-AMS_HTML',
+        'tabSpaces': 4,
+        'extraPlugins': ','.join([
+            'uploadimage', # the upload image feature
+            # your extra plugins here
+            'div',
+            'autolink',
+            'autoembed',
+            'embedsemantic',
+            'autogrow',
+            # 'devtools',
+            'widget',
+            'lineutils',
+            'clipboard',
+            'dialog',
+            'dialogui',
+            'elementspath'
+        ]),
+    }
 }

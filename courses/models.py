@@ -5,6 +5,8 @@ from django.contrib.contenttypes.fields import GenericForeignKey
 from .fields import OrderField
 from django.template.loader import render_to_string
 from django.utils.safestring import mark_safe
+from django.core.urlresolvers import reverse_lazy
+from ckeditor_uploader.fields import  RichTextUploadingField
 
 
 # Create your models here.
@@ -27,7 +29,8 @@ class Course(models.Model):
                                 related_name='courses')
     title = models.CharField(max_length=200)
     slug = models.SlugField(max_length=200, unique=True)
-    overview = models.TextField()
+    #overview = models.TextField()
+    overview = RichTextUploadingField()
     created = models.DateTimeField(auto_now_add=True)
     students = models.ManyToManyField(User,
                                       related_name='courses_joined',
@@ -35,15 +38,20 @@ class Course(models.Model):
 
     class Meta:
         ordering = ('-created',)
+    
+    def get_absolute_url(self):       
+        return reverse_lazy('course_detail', kwargs={'slug': self.slug})
 
     def __str__(self):
         return self.title
-
+    
+   
 
 class Module(models.Model):
     course = models.ForeignKey(Course, related_name='modules')
     title = models.CharField(max_length=200)
-    description = models.TextField(blank=True)
+    #description = models.TextField(blank=True)
+    description = RichTextUploadingField()
     order = OrderField(blank=True, for_fields=['course'])
 
     class Meta:
@@ -87,7 +95,7 @@ class ItemBase(models.Model):
 
 
 class Text(ItemBase):
-    content = models.TextField()
+    content = RichTextUploadingField()
 
 
 class File(ItemBase):
