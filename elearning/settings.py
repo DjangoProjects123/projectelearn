@@ -185,7 +185,7 @@ HAYSTACK_CONNECTIONS = {
 }
 
 
-CKEDITOR_CONFIGS = {
+""" CKEDITOR_CONFIGS = {
     'default': {
         'skin': 'moono',
         # 'skin': 'office2013',
@@ -253,3 +253,4 @@ CKEDITOR_CONFIGS = {
 
 
 
+ """
