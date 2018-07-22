@@ -14,12 +14,15 @@ Including another URLconf
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
 from django.conf.urls import include, url
+
 from django.contrib import admin
 from django.contrib.auth import views as auth_views
 from courses.views import CourseHomeView, CourseListView
 from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
+
+
 
 
 urlpatterns = [
@@ -33,8 +36,9 @@ urlpatterns = [
     url(r'^students/', include('students.urls')),
     url(r'^api/', include('courses.api.urls', namespace='api')),
     # url(r'^markdownx/', include('markdownx.urls')),
-]
+    url(r'search/', include('haystack.urls')),
 
+]
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
 urlpatterns += static(settings.MEDIA_URL,

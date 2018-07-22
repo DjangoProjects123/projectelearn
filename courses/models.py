@@ -8,6 +8,8 @@ from ckeditor.fields import RichTextField
 from ckeditor_uploader.fields import RichTextUploadingField
 
 from django.utils.safestring import mark_safe
+from django.core.urlresolvers import reverse_lazy
+from ckeditor_uploader.fields import  RichTextUploadingField
 
 
 # Create your models here.
@@ -44,6 +46,9 @@ class Course(models.Model):
 
     class Meta:
         ordering = ('-created',)
+    
+    def get_absolute_url(self):       
+        return reverse_lazy('course_detail', kwargs={'slug': self.slug})
 
     def __str__(self):
         return self.title
@@ -102,11 +107,6 @@ class ItemBase(models.Model):
 
 class Text(ItemBase):
     content = RichTextUploadingField()
-
-    # # Create a property that returns the markdown instead
-    # @property
-    # def formatted_markdown(self):
-    #     return markdownify(self.content)
 
 
 class File(ItemBase):

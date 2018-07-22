@@ -10,9 +10,12 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/1.11/ref/settings/
 """
 
+
+
 import os
 import datetime
 from django.core.urlresolvers import reverse_lazy
+
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -31,6 +34,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'courses',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -38,13 +42,17 @@ INSTALLED_APPS = [
     'django.contrib.messages',
      'livereload',
     'django.contrib.staticfiles',
-    'courses',
+    'ckeditor',
+    'ckeditor_uploader',
     'students',
     'embed_video',
     # 'memcache_status',
     'rest_framework',
     'ckeditor',
     'ckeditor_uploader',
+    'haystack',
+    'whoosh',
+   
 ]
 
 MIDDLEWARE_CLASSES = (
@@ -136,6 +144,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
+
 LOGIN_REDIRECT_URL = reverse_lazy('student_course_list')
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
@@ -168,6 +177,23 @@ CKEDITOR_JQUERY_URL = 'https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery
 #         'width': 900,
 #     },
 # }
+WHOOSH_INDEX=os.path.join(BASE_DIR,'whoosh/')
+HAYSTACK_CONNECTIONS = {
+    'default': {
+        'ENGINE': 'haystack.backends.whoosh_backend.WhooshEngine',
+        'PATH': WHOOSH_INDEX,
+    },
+}
+
+###################################################################
+           ## CKEDITOR CONFIGURATION ##
+###################################################################
+
+CKEDITOR_BASEPATH = "/home/greendelta/.virtualenvs/elearn/lib/python3.6/site-packages/ckeditor/static/ckeditor"
+CKEDITOR_JQUERY_URL = 'https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js'
+
+CKEDITOR_UPLOAD_PATH = 'uploads/'
+CKEDITOR_IMAGE_BACKEND = "pillow"
 
 CKEDITOR_CONFIGS = {
     'default': {
@@ -233,6 +259,7 @@ CKEDITOR_CONFIGS = {
         ]),
     }
 }
+
 
 
 
