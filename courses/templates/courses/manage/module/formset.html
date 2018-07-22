@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{{ form.media }}
+
 {% block title %}
     Edit "{{ course.title }}"
 {% endblock %}
@@ -13,7 +13,9 @@
                     <div class="module">
                         <h2>Course modules</h2>
                         <form action="" method="post">
+                                {{ form.media }}
                             {{ formset }}
+                            
                             {{ formset.management_form }}
                             {% csrf_token %}
                             <input type="submit" class="button" value="Save Modules"/>

@@ -7,8 +7,7 @@ from django.template.loader import render_to_string
 from django.utils.safestring import mark_safe
 from django.core.urlresolvers import reverse_lazy
 from ckeditor_uploader.fields import  RichTextUploadingField
-
-
+from django import forms
 # Create your models here.
 
 class Subject(models.Model):
@@ -30,7 +29,7 @@ class Course(models.Model):
     title = models.CharField(max_length=200)
     slug = models.SlugField(max_length=200, unique=True)
     #overview = models.TextField()
-    overview = RichTextUploadingField()
+    overview = RichTextUploadingField(blank=True, null=True)
     created = models.DateTimeField(auto_now_add=True)
     students = models.ManyToManyField(User,
                                       related_name='courses_joined',
@@ -51,7 +50,7 @@ class Module(models.Model):
     course = models.ForeignKey(Course, related_name='modules')
     title = models.CharField(max_length=200)
     #description = models.TextField(blank=True)
-    description = RichTextUploadingField()
+    description = RichTextUploadingField(blank=True, null=True)
     order = OrderField(blank=True, for_fields=['course'])
 
     class Meta:
@@ -95,7 +94,7 @@ class ItemBase(models.Model):
 
 
 class Text(ItemBase):
-    content = RichTextUploadingField()
+    content = RichTextUploadingField(blank=True, null=True)
 
 
 class File(ItemBase):
