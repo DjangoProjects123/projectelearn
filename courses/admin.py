@@ -1,5 +1,6 @@
 from django.contrib import admin
 from .models import Subject, Course, Module
+# from markdownx.admin import MarkdownxModelAdmin
 
 # Register your models here.
 
@@ -21,3 +22,6 @@ class CourseAdmin(admin.ModelAdmin):
     search_fields = ['title', 'overview']
     prepopulated_fields = {'slug': ('title',)}
     inlines = [ModuleInline]
+
+
+# @admin.register(MarkdownxModelAdmin)

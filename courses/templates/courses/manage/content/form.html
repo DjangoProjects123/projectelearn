@@ -1,4 +1,7 @@
 {% extends "base.html" %}
+{% load static %}
+<script type="text/javascript" src="{% static "ckeditor/ckeditor-init.js" %}"></script>
+<script type="text/javascript" src="{% static "ckeditor/ckeditor/ckeditor.js" %}"></script>
 
 {% block title %}
     {% if object %}
@@ -23,10 +26,12 @@
                     <div class="module">
                         <h2>Course info</h2>
                         <form action="" method="post" enctype="multipart/form-data">
-                            {{ form.as_p }}
+                            {{ form.media }}
+                            {{ form }}
                             {% csrf_token %}
                             <p><input type="submit" value="Save content"/></p>
                         </form>
+
                     </div>
                 </div>
             </div>

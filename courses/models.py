@@ -4,6 +4,9 @@ from django.contrib.contenttypes.models import ContentType
 from django.contrib.contenttypes.fields import GenericForeignKey
 from .fields import OrderField
 from django.template.loader import render_to_string
+from ckeditor.fields import RichTextField
+from ckeditor_uploader.fields import RichTextUploadingField
+
 from django.utils.safestring import mark_safe
 
 
@@ -27,11 +30,17 @@ class Course(models.Model):
                                 related_name='courses')
     title = models.CharField(max_length=200)
     slug = models.SlugField(max_length=200, unique=True)
-    overview = models.TextField()
+    overview = RichTextField()
+    # body = RichTextField(config_name='default')
     created = models.DateTimeField(auto_now_add=True)
     students = models.ManyToManyField(User,
                                       related_name='courses_joined',
                                       blank=True)
+
+    # # Create a property that returns the markdown instead
+    # @property
+    # def formatted_markdown(self):
+    #     return markdownify(self.overview)
 
     class Meta:
         ordering = ('-created',)
@@ -43,8 +52,13 @@ class Course(models.Model):
 class Module(models.Model):
     course = models.ForeignKey(Course, related_name='modules')
     title = models.CharField(max_length=200)
-    description = models.TextField(blank=True)
+    description = RichTextField(blank=True)
     order = OrderField(blank=True, for_fields=['course'])
+
+    # # Create a property that returns the markdown instead
+    # @property
+    # def formatted_markdown(self):
+    #     return markdownify(self.description)
 
     class Meta:
         ordering = ['order']
@@ -87,7 +101,12 @@ class ItemBase(models.Model):
 
 
 class Text(ItemBase):
-    content = models.TextField()
+    content = RichTextUploadingField()
+
+    # # Create a property that returns the markdown instead
+    # @property
+    # def formatted_markdown(self):
+    #     return markdownify(self.content)
 
 
 class File(ItemBase):

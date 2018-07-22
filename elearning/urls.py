@@ -19,19 +19,25 @@ from django.contrib.auth import views as auth_views
 from courses.views import CourseHomeView, CourseListView
 from django.conf import settings
 from django.conf.urls.static import static
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
+
 
 urlpatterns = [
     url(r'^accounts/login/$', auth_views.login, name='login'),
     url(r'^accounts/logout/$', auth_views.logout, name='logout'),
     url(r'^admin/', admin.site.urls),
+    url(r'^ckeditor/', include('ckeditor_uploader.urls')),
     url(r'^course/', include('courses.urls')),
     url(r'^$', CourseHomeView.as_view(), name='course_home'),
     url(r'^allcourses/$', CourseListView.as_view(), name='course_list'),
     url(r'^students/', include('students.urls')),
     url(r'^api/', include('courses.api.urls', namespace='api')),
+    # url(r'^markdownx/', include('markdownx.urls')),
 ]
 
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
 urlpatterns += static(settings.MEDIA_URL,
                       document_root=settings.MEDIA_ROOT)
+
+urlpatterns += staticfiles_urlpatterns()
