@@ -1,6 +1,9 @@
 from django import forms
 from django.forms.models import inlineformset_factory
 from .models import Course, Module
+from django import forms
+
+
 
 ModuleFormSet = inlineformset_factory(Course,
                                       Module,

@@ -8,15 +8,26 @@
     <div class="page_section">
         <div class="container">
             <div class="row">
-                <div class="col-md-12">
+                <div class="col-md-4">
                     <h1>Edit "{{ course.title }}"</h1>
-                    <div class="module">
+                    <div >
                         <h2>Course modules</h2>
                         <form action="" method="post">
-                            {{ formset.media }}
-                            {{ formset }}
-                            {{ formset.management_form }}
-                            {% csrf_token %}
+                                {% csrf_token %}
+                                {{ formset.management_form }}
+                              {{ formset.media }}
+
+                              
+                            {% for f_form in formset %}
+                           
+                             
+                                    {{ f_form.as_p }}
+                              
+                               
+                            {% endfor %}                            
+                            
+                            
+                           
                             <input type="submit" class="button" value="Save Modules"/>
                         </form>
                     </div>

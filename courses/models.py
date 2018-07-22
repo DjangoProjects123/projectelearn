@@ -111,7 +111,7 @@ class File(ItemBase):
 
 
 class Image(ItemBase):
-    file = models.FileField(upload_to='images')
+    file = models.ImageField(upload_to='images')
 
 
 class Video(ItemBase):
