@@ -31,13 +31,8 @@ class Course(models.Model):
                                 related_name='courses')
     title = models.CharField(max_length=200)
     slug = models.SlugField(max_length=200, unique=True)
-<<<<<<< HEAD
-    #overview = models.TextField()
-    overview = RichTextUploadingField(blank=True, null=True)
-=======
     overview = RichTextField()
     # body = RichTextField(config_name='default')
->>>>>>> 4df7405a28efa26aa4bb8f8bb1604b678eb9fb43
     created = models.DateTimeField(auto_now_add=True)
     students = models.ManyToManyField(User,
                                       related_name='courses_joined',
@@ -61,12 +56,7 @@ class Course(models.Model):
 class Module(models.Model):
     course = models.ForeignKey(Course, related_name='modules')
     title = models.CharField(max_length=200)
-<<<<<<< HEAD
-    #description = models.TextField(blank=True)
-    description = RichTextUploadingField(blank=True, null=True)
-=======
     description = RichTextField(blank=True)
->>>>>>> 4df7405a28efa26aa4bb8f8bb1604b678eb9fb43
     order = OrderField(blank=True, for_fields=['course'])
 
     # # Create a property that returns the markdown instead

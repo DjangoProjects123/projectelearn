@@ -1,10 +1,7 @@
 {% extends "base.html" %}
-<<<<<<< HEAD
-=======
 {% load static %}
 <script type="text/javascript" src="{% static "ckeditor/ckeditor-init.js" %}"></script>
 <script type="text/javascript" src="{% static "ckeditor/ckeditor/ckeditor.js" %}"></script>
->>>>>>> 4df7405a28efa26aa4bb8f8bb1604b678eb9fb43
 
 {% block title %}
     {% if object %}
@@ -29,14 +26,8 @@
                     <div class="module">
                         <h2>Course info</h2>
                         <form action="" method="post" enctype="multipart/form-data">
-<<<<<<< HEAD
-                           
-                            {{ form.as_p }}
-                            
-=======
                             {{ form.media }}
                             {{ form }}
->>>>>>> 4df7405a28efa26aa4bb8f8bb1604b678eb9fb43
                             {% csrf_token %}
                             <p><input type="submit" value="Save content"/></p>
                         </form>

@@ -48,8 +48,6 @@ INSTALLED_APPS = [
     'embed_video',
     # 'memcache_status',
     'rest_framework',
-    'ckeditor',
-    'ckeditor_uploader',
     'haystack',
     'whoosh',
     
