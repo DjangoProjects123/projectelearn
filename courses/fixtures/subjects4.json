@@ -1,0 +1,47 @@
+[
+{
+  "model": "courses.subject",
+  "fields": {
+    "title": "Mathematics",
+    "slug": "mathematics"
+  },
+  "pk": 1
+},
+{
+  "model": "courses.subject",
+  "fields": {
+    "title": "Music",
+    "slug": "music"
+  },
+  "pk": 2
+},
+{
+  "model": "courses.subject",
+  "fields": {
+    "title": "Physics",
+    "slug": "physics"
+  },
+  "pk": 3
+},
+{
+  "model": "courses.subject",
+  "fields": {
+    "title": "Programming",
+    "slug": "programming"
+  },
+  "pk": 4
+},
+{
+  "model": "courses.course",
+  "fields": {
+    "owner": 1,
+    "subject": 4,
+    "title": "Django",
+    "slug": "django",
+    "overview": "This is an introduction to django",
+    "created": "2018-07-16T15:45:37.505Z",
+    "students": []
+  },
+  "pk": 1
+}
+]

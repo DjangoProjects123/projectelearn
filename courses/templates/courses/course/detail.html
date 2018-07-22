@@ -22,7 +22,11 @@
                         {{ object.modules.count }} modules.
                         Instructor: {{ object.owner.get_full_name }}
                     </p>
+<<<<<<< HEAD
                     {{ object.overview|safe }}
+=======
+                    {{ object.overview | safe }}
+>>>>>>> 4df7405a28efa26aa4bb8f8bb1604b678eb9fb43
                     {% if request.user.is_authenticated %}
                         <form action="{% url "student_enroll_course" %}" method="post">
                             {{ enroll_form }}

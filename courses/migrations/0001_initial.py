@@ -2,8 +2,9 @@
 from __future__ import unicode_literals
 
 from django.db import migrations, models
-import courses.fields
 from django.conf import settings
+import ckeditor.fields
+import courses.fields
 
 
 class Migration(migrations.Migration):
@@ -32,7 +33,7 @@ class Migration(migrations.Migration):
                 ('id', models.AutoField(verbose_name='ID', primary_key=True, serialize=False, auto_created=True)),
                 ('title', models.CharField(max_length=200)),
                 ('slug', models.SlugField(max_length=200, unique=True)),
-                ('overview', models.TextField()),
+                ('overview', ckeditor.fields.RichTextField()),
                 ('created', models.DateTimeField(auto_now_add=True)),
                 ('owner', models.ForeignKey(related_name='courses_created', to=settings.AUTH_USER_MODEL)),
                 ('students', models.ManyToManyField(blank=True, related_name='courses_joined', to=settings.AUTH_USER_MODEL)),
@@ -74,7 +75,7 @@ class Migration(migrations.Migration):
             fields=[
                 ('id', models.AutoField(verbose_name='ID', primary_key=True, serialize=False, auto_created=True)),
                 ('title', models.CharField(max_length=200)),
-                ('description', models.TextField(blank=True)),
+                ('description', ckeditor.fields.RichTextField(blank=True)),
                 ('order', courses.fields.OrderField(blank=True)),
                 ('course', models.ForeignKey(related_name='modules', to='courses.Course')),
             ],
@@ -100,7 +101,7 @@ class Migration(migrations.Migration):
                 ('title', models.CharField(max_length=200)),
                 ('created', models.DateTimeField(auto_now_add=True)),
                 ('updated', models.DateTimeField(auto_now=True)),
-                ('content', models.TextField()),
+                ('content', ckeditor.fields.RichTextField()),
                 ('owner', models.ForeignKey(related_name='text_related', to=settings.AUTH_USER_MODEL)),
             ],
             options={

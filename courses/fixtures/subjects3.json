@@ -67,7 +67,7 @@
   "model": "courses.course",
   "fields": {
     "title": "Django course",
-    "owner": 2,
+    "owner": 1,
     "subject": 4,
     "overview": " ",
     "created": "2018-07-15T19:49:04.833Z",
@@ -242,7 +242,7 @@
     "updated": "2018-07-15T20:15:53.769Z",
     "title": "Why Django",
     "created": "2018-07-15T20:15:53.769Z",
-    "owner": 2
+    "owner": 1
   }
 },
 {
@@ -274,7 +274,7 @@
     "updated": "2018-07-15T20:14:44.392Z",
     "title": "Django intro",
     "created": "2018-07-15T20:14:44.392Z",
-    "owner": 2,
+    "owner": 1,
     "url": "https://www.youtube.com/watch?v=n-FTlQ7Djqc"
   }
 },

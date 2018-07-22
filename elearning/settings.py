@@ -13,6 +13,8 @@ https://docs.djangoproject.com/en/1.11/ref/settings/
 
 
 import os
+import datetime
+from django.core.urlresolvers import reverse_lazy
 
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -46,6 +48,8 @@ INSTALLED_APPS = [
     'embed_video',
     # 'memcache_status',
     'rest_framework',
+    'ckeditor',
+    'ckeditor_uploader',
     'haystack',
     'whoosh',
     
@@ -140,9 +144,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
 STATIC_URL = '/static/'
-STATIC_ROOT = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
 
-from django.core.urlresolvers import reverse_lazy
 LOGIN_REDIRECT_URL = reverse_lazy('student_course_list')
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
@@ -159,6 +162,22 @@ REST_FRAMEWORK = {
     ]
 }
 
+# ckeditor
+CKEDITOR_UPLOAD_PATH = "uploads/"
+
+# CKEDITOR_UPLOAD_SLUGIFY_FILENAME = False
+CKEDITOR_RESTRICT_BY_USER = True
+CKEDITOR_IMAGE_BACKEND = "pillow"
+CKEDITOR_JQUERY_URL = 'https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js'
+# CKEDITOR_JQUERY_URL = 'http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js'
+# CKEDITOR_CONFIGS = {
+#     'default': {
+#         'removePlugins': 'stylesheetparser',
+#         'toolbar': 'Full',
+#         'height': 500,
+#         'width': 900,
+#     },
+# }
 WHOOSH_INDEX=os.path.join(BASE_DIR,'whoosh/')
 HAYSTACK_CONNECTIONS = {
     'default': {
@@ -241,3 +260,7 @@ CKEDITOR_CONFIGS = {
         ]),
     }
 }
+
+
+
+

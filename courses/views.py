@@ -226,9 +226,6 @@ class CourseListView(TemplateResponseMixin, View):
                                         'courses': courses})
 
 
-
-
-
 class CourseHomeView(TemplateResponseMixin, View):
     model = Course
     template_name = 'courses/course/home.html'
@@ -264,6 +261,3 @@ class CourseDetailView(DetailView):
         return context
 
 
-def search(self, request):
-    template_name = 'search/search.html'
-    return SearchView(template=template_name)(request)
