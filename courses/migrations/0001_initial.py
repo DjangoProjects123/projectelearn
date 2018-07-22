@@ -3,15 +3,16 @@ from __future__ import unicode_literals
 
 from django.db import migrations, models
 from django.conf import settings
-import ckeditor.fields
 import courses.fields
+import ckeditor_uploader.fields
+import ckeditor.fields
 
 
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('contenttypes', '0002_remove_content_type_name'),
         migrations.swappable_dependency(settings.AUTH_USER_MODEL),
+        ('contenttypes', '0002_remove_content_type_name'),
     ]
 
     operations = [
@@ -101,7 +102,7 @@ class Migration(migrations.Migration):
                 ('title', models.CharField(max_length=200)),
                 ('created', models.DateTimeField(auto_now_add=True)),
                 ('updated', models.DateTimeField(auto_now=True)),
-                ('content', ckeditor.fields.RichTextField()),
+                ('content', ckeditor_uploader.fields.RichTextUploadingField(blank=True, null=True)),
                 ('owner', models.ForeignKey(related_name='text_related', to=settings.AUTH_USER_MODEL)),
             ],
             options={

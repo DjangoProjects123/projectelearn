@@ -176,7 +176,7 @@ CKEDITOR_JQUERY_URL = 'https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery
 #         'width': 900,
 #     },
 # }
-WHOOSH_INDEX=os.path.join(BASE_DIR,'whoosh/')
+WHOOSH_INDEX=os.path.join(BASE_DIR, 'whoosh/')
 HAYSTACK_CONNECTIONS = {
     'default': {
         'ENGINE': 'haystack.backends.whoosh_backend.WhooshEngine',
@@ -184,15 +184,6 @@ HAYSTACK_CONNECTIONS = {
     },
 }
 
-###################################################################
-           ## CKEDITOR CONFIGURATION ##
-###################################################################
-
-CKEDITOR_BASEPATH = "/home/greendelta/.virtualenvs/elearn/lib/python3.6/site-packages/ckeditor/static/ckeditor"
-CKEDITOR_JQUERY_URL = 'https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js'
-
-CKEDITOR_UPLOAD_PATH = 'uploads/'
-CKEDITOR_IMAGE_BACKEND = "pillow"
 
 CKEDITOR_CONFIGS = {
     'default': {

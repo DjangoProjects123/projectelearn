@@ -5,11 +5,9 @@ from django.contrib.contenttypes.fields import GenericForeignKey
 from .fields import OrderField
 from django.template.loader import render_to_string
 from ckeditor.fields import RichTextField
-from ckeditor_uploader.fields import RichTextUploadingField
 
-from django.utils.safestring import mark_safe
 from django.core.urlresolvers import reverse_lazy
-from ckeditor_uploader.fields import  RichTextUploadingField
+from ckeditor_uploader.fields import RichTextUploadingField
 from django import forms
 # Create your models here.
 
