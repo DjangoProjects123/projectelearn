@@ -1,5 +1,6 @@
 from django.contrib import admin
 from .models import Subject, Course, Module
+from .forms import SubjectImageForm
 # from markdownx.admin import MarkdownxModelAdmin
 
 # Register your models here.
@@ -7,7 +8,8 @@ from .models import Subject, Course, Module
 
 @admin.register(Subject)
 class SubjectAdmin(admin.ModelAdmin):
-    list_display = ['title', 'slug']
+    form = SubjectImageForm
+    list_display = ['title', 'slug', 'image']
     prepopulated_fields = {'slug': ('title',)}
 
 

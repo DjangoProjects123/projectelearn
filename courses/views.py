@@ -1,3 +1,4 @@
+from django.http import HttpResponse, HttpResponseForbidden
 from django.shortcuts import redirect, get_object_or_404
 from django.core.urlresolvers import reverse_lazy
 from django.views.generic.list import ListView
@@ -9,7 +10,7 @@ from django.forms.models import modelform_factory
 from django.apps import apps
 from django.db.models import Count,Q
 from braces.views import CsrfExemptMixin, JsonRequestResponseMixin
-from .forms import ModuleFormSet
+from .forms import ModuleFormSet, SubjectImageForm, CourseImageForm
 from .models import Course, Module, Content, Subject
 from students.forms import CourseEnrollForm
 from django.core.cache import cache
@@ -33,12 +34,13 @@ class OwnerEditMixin(object):
 
 class OwnerCourseMixin(OwnerMixin, LoginRequiredMixin):
     model = Course
-    fields = ['subject', 'title', 'slug', 'overview']
+    form = CourseImageForm
+    fields = ['subject', 'image', 'title', 'slug', 'overview']
     success_url = reverse_lazy('manage_course_list')
 
 
 class OwnerCourseEditMixin(OwnerCourseMixin, OwnerEditMixin):
-    fields = ['subject', 'title', 'slug', 'overview']
+    fields = ['subject', 'image', 'title', 'slug', 'overview']
     success_url = reverse_lazy('manage_course_list')
     template_name = 'courses/manage/course/form.html'
 
@@ -259,5 +261,6 @@ class CourseDetailView(DetailView):
         context = super(CourseDetailView, self).get_context_data(**kwargs)
         context['enroll_form'] = CourseEnrollForm(initial={'course':self.object})
         return context
+
 
 

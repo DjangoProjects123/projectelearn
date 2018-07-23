@@ -2,9 +2,9 @@
 
 {% block title %}
     {% if subject %}
-        {{ subject.title }} courses
+        {{ subject.title }} units
     {% else %}
-        All courses
+        All units
     {% endif %}
 {% endblock %}
 
@@ -16,9 +16,9 @@
                     <h1>
 
                         {% if subject %}
-                            {{ subject.title }} courses
+                            {{ subject.title }} units
                         {% else %}
-                            All courses
+                            All units
                         {% endif %}
                     </h1>
                     <div class="contents">
@@ -31,7 +31,7 @@
                                 <li {% if subject == s %}class="selected"{% endif %}>
                                     <a href="{% url "course_list_subject" s.slug %}">
                                         {{ s.title }}
-                                        <br><span>{{ s.total_courses }} courses</span>
+                                        <br><span>{{ s.total_courses }} units</span>
                                     </a>
                                 </li>
                             {% endfor %}

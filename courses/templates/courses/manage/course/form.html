@@ -22,13 +22,12 @@
                     </h1>
                     <div class="module">
                         <h2>Course info</h2>
-                        <form action="." method="post">
+                        <form action="." method="post" enctype="multipart/form-data">
                             {{ form.media }}
-                            {{ form }}
+                            {{ form.as_p }}
                             {% csrf_token %}
                             <p><input type="submit" value="Save course"/></p>
                         </form>
-                        {{ form.media }}
                     </div>
                 </div>
             </div>

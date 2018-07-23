@@ -1,0 +1,295 @@
+[
+{
+  "model": "courses.subject",
+  "fields": {
+    "title": "Mathematics",
+    "slug": "mathematics",
+    "image": "subject_pics/Screenshot_from_2018-04-30_10-30-35.png"
+  },
+  "pk": 1
+},
+{
+  "model": "courses.subject",
+  "fields": {
+    "title": "Music",
+    "slug": "music",
+    "image": "subject_pics/Screenshot_from_2018-04-30_10-30-52.png"
+  },
+  "pk": 2
+},
+{
+  "model": "courses.subject",
+  "fields": {
+    "title": "Physics",
+    "slug": "physics",
+    "image": "/static/images/course_1.jpg"
+  },
+  "pk": 3
+},
+{
+  "model": "courses.subject",
+  "fields": {
+    "title": "Programming",
+    "slug": "programming",
+    "image": "/static/images/course_1.jpg"
+  },
+  "pk": 4
+},
+{
+  "model": "courses.course",
+  "fields": {
+    "owner": 1,
+    "subject": 4,
+    "title": "Course 1",
+    "slug": "course1",
+    "overview": "",
+    "created": "2018-07-15T19:01:40.428Z",
+    "image": "/static/images/course_1.jpg",
+    "students": [
+      1
+    ]
+  },
+  "pk": 1
+},
+{
+  "model": "courses.course",
+  "fields": {
+    "owner": 1,
+    "subject": 4,
+    "title": "Course 2",
+    "slug": "course2",
+    "overview": "",
+    "created": "2018-07-15T19:06:03.150Z",
+    "image": "/static/images/course_1.jpg",
+    "students": [
+      1
+    ]
+  },
+  "pk": 2
+},
+{
+  "model": "courses.course",
+  "fields": {
+    "owner": 1,
+    "subject": 4,
+    "title": "Django course",
+    "slug": "django_course",
+    "overview": " ",
+    "created": "2018-07-15T19:49:04.833Z",
+    "image": "/static/images/course_1.jpg",
+    "students": [
+      1
+    ]
+  },
+  "pk": 3
+},
+{
+  "model": "courses.course",
+  "fields": {
+    "owner": 1,
+    "subject": 1,
+    "title": "Calculus",
+    "slug": "calculus",
+    "overview": "<p>Learn Calculus in the easiest way. Just get started</p>\r\n",
+    "created": "2018-07-16T19:49:50.103Z",
+    "image": "course_pics/Screenshot_from_2018-04-30_10-30-11.png",
+    "students": []
+  },
+  "pk": 4
+},
+{
+  "model": "courses.module",
+  "fields": {
+    "course": 1,
+    "title": "Module 1",
+    "description": "",
+    "order": 0
+  },
+  "pk": 1
+},
+{
+  "model": "courses.module",
+  "fields": {
+    "course": 1,
+    "title": "Module 2",
+    "description": "",
+    "order": 1
+  },
+  "pk": 2
+},
+{
+  "model": "courses.module",
+  "fields": {
+    "course": 1,
+    "title": "Module 3",
+    "description": "",
+    "order": 5
+  },
+  "pk": 3
+},
+{
+  "model": "courses.module",
+  "fields": {
+    "course": 1,
+    "title": "Module 4",
+    "description": "",
+    "order": 6
+  },
+  "pk": 4
+},
+{
+  "model": "courses.module",
+  "fields": {
+    "course": 2,
+    "title": "Module 1",
+    "description": "",
+    "order": 0
+  },
+  "pk": 5
+},
+{
+  "model": "courses.module",
+  "fields": {
+    "course": 3,
+    "title": "Introduction",
+    "description": "Welcome to Django to the beautiful world of Django",
+    "order": 0
+  },
+  "pk": 6
+},
+{
+  "model": "courses.module",
+  "fields": {
+    "course": 3,
+    "title": "Setting up the development environment",
+    "description": "Get up and ready to start developing in django",
+    "order": 1
+  },
+  "pk": 7
+},
+{
+  "model": "courses.module",
+  "fields": {
+    "course": 4,
+    "title": "Introduction",
+    "description": "Welcome to the world of calculus",
+    "order": 0
+  },
+  "pk": 8
+},
+{
+  "model": "courses.module",
+  "fields": {
+    "course": 4,
+    "title": "Calculus 101",
+    "description": "The course involves very important concepts",
+    "order": 1
+  },
+  "pk": 9
+},
+{
+  "model": "courses.content",
+  "fields": {
+    "module": 6,
+    "content_type": 14,
+    "object_id": 1,
+    "order": 0
+  },
+  "pk": 1
+},
+{
+  "model": "courses.content",
+  "fields": {
+    "module": 6,
+    "content_type": 11,
+    "object_id": 1,
+    "order": 1
+  },
+  "pk": 2
+},
+{
+  "model": "courses.content",
+  "fields": {
+    "module": 9,
+    "content_type": 13,
+    "object_id": 1,
+    "order": 0
+  },
+  "pk": 3
+},
+{
+  "model": "courses.content",
+  "fields": {
+    "module": 9,
+    "content_type": 14,
+    "object_id": 2,
+    "order": 1
+  },
+  "pk": 4
+},
+{
+  "model": "courses.content",
+  "fields": {
+    "module": 9,
+    "content_type": 12,
+    "object_id": 1,
+    "order": 2
+  },
+  "pk": 5
+},
+{
+  "model": "courses.text",
+  "fields": {
+    "owner": 1,
+    "title": "Why Django",
+    "created": "2018-07-15T20:15:53.769Z",
+    "updated": "2018-07-15T20:15:53.769Z",
+    "content": "Django helps you to quickly develop a website and deploy in zero time. With this course you will be learn all the knicks and perks of django"
+  },
+  "pk": 1
+},
+{
+  "model": "courses.file",
+  "fields": {
+    "owner": 1,
+    "title": "Calculus book",
+    "created": "2018-07-16T20:11:44.284Z",
+    "updated": "2018-07-16T20:11:44.284Z",
+    "file": "files/Ashlee_Vance_Elon_Musk.pdf"
+  },
+  "pk": 1
+},
+{
+  "model": "courses.image",
+  "fields": {
+    "owner": 1,
+    "title": "Wildlife",
+    "created": "2018-07-16T20:08:59.618Z",
+    "updated": "2018-07-16T20:08:59.618Z",
+    "file": "images/pexels-photo-490411.jpeg"
+  },
+  "pk": 1
+},
+{
+  "model": "courses.video",
+  "fields": {
+    "owner": 1,
+    "title": "Django intro",
+    "created": "2018-07-15T20:14:44.392Z",
+    "updated": "2018-07-15T20:14:44.392Z",
+    "url": "https://www.youtube.com/watch?v=n-FTlQ7Djqc"
+  },
+  "pk": 1
+},
+{
+  "model": "courses.video",
+  "fields": {
+    "owner": 1,
+    "title": "video",
+    "created": "2018-07-16T20:11:14.533Z",
+    "updated": "2018-07-16T20:11:14.533Z",
+    "url": "https://www.youtube.com/watch?v=riXcZT2ICjA"
+  },
+  "pk": 2
+}
+]
