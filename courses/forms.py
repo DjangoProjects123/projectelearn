@@ -27,8 +27,8 @@ class SubjectImageForm(forms.ModelForm):
             w, h = get_image_dimensions(image)
 
             # validate dimensions
-            max_height = 700
-            max_width = 700
+            max_height = 1000
+            max_width = 1000
             if w > max_width or h > max_height:
                 raise forms.ValidationError(
                     u'Please use an image that is '
@@ -48,7 +48,7 @@ class SubjectImageForm(forms.ModelForm):
                                             'GIF or PNG image.')
 
             # validate file size
-            if len(image) > (20 * 1024):
+            if len(image) > (5120 * 1024):
                 raise forms.ValidationError(
                     u'Avatar file size may not exceed 20k.')
 

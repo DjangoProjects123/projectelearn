@@ -35,6 +35,7 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'courses',
+    'analytics',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -50,8 +51,8 @@ INSTALLED_APPS = [
     'rest_framework',
     'haystack',
     'whoosh',
-    'password_reset',
-    'analytics',
+    
+    
     
    
 ]

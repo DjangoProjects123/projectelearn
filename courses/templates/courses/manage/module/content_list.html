@@ -13,26 +13,26 @@
                 <div class="col-md-4">
                         <div class="contents">
                                 {% with course=module.course %}
-                                <h2 class="header-text">Course "{{ course.title }}"</h2>
+                                <h2 class="header-text">{{ course.title }}</h2>
                                 <div class="contents">
-                                    <h3 style="font-size: 30px;">Modules</h3>
+                                    <h3 class="header-content">Modules</h3>
                                     <ul id="modules">
                                         {% for m in course.modules.all %}
                                             <li data-id="{{ m.id }}" {% if m == module %}
                                                 class="selected" {% endif %}>
                                                 <a href="{% url "module_content_list" m.id %}">
-                                                    <span style="font-size: 30px;">
-                                                        Module <span style="font-size: 30px;" class="order">{{ m.order|add:1 }}</span>
+                                                    <span class="header-content">
+                                                        Module <span class="header-content" class="order">{{ m.order|add:1 }}</span>
                                                     </span>
                                                     <br/>
                                                     {{ m.title }}
                                                 </a>
                                             </li>
                                         {% empty %}
-                                            <li style="font-size: 30px;">No modules yet.</li>
+                                            <li class="header-content">No modules yet.</li>
                                         {% endfor %}
                                     </ul>
-                                    <p style="font-size: 30px;"><a href="{% url "course_module_update" course.id %}">Edit
+                                    <p style="color: aliceblue;"><a href="{% url "course_module_update" course.id %}">Edit
                                      modules</a></p>
                                 </div>                              
                                     </div>
@@ -44,17 +44,17 @@
                         <div class="gx-card" >
             <!-- right side bar -->
             <div class="module">
-        <h2 class="header-text">Module {{ module.order|add:1 }}: {{ module.title }}</h2>
+        <h2 class="header-content">Module {{ module.order|add:1 }}: {{ module.title }}</h2>
         <h3>Module contents:</h3>
 
         <div id="module-contents">
             {% for content in module.contents.all %}
                 <div data-id="{{ content.id }}">
                     {% with item=content.item %}
-                        <p class="header-text">{{ item }} ({{ item|model_name }})</p>
-                        <a class="header-text" href="{% url "module_content_update" module.id item|model_name item.id %}">Edit</a>
+                        <p class="header-content">{{ item }} ({{ item|model_name }})</p>
+                        <a class="header-content" href="{% url "module_content_update" module.id item|model_name item.id %}">Edit</a>
                         <form action="{% url "module_content_delete" content.id %}" method="post">
-                            <input style="font-size: 30px;" type="submit" value="Delete" />
+                            <input class="header-content" type="submit" value="Delete" />
                             {% csrf_token %}
                         </form>
                     {% endwith %}
@@ -66,16 +66,16 @@
         <hr/>
         <h3>Add new content:</h3>
         <ul class="content-types">
-            <li class="header-text"><a href="{% url "module_content_create" module.id "text" %}">
+            <li class="header-content"><a href="{% url "module_content_create" module.id "text" %}">
                 Text
             </a></li>
-            <li class="header-text"><a href="{% url "module_content_create" module.id "image" %}">
+            <li class="header-content"><a href="{% url "module_content_create" module.id "image" %}">
                 Image
             </a></li>
-            <li class="header-text"><a href="{% url "module_content_create" module.id "video" %}">
+            <li class="header-content"><a href="{% url "module_content_create" module.id "video" %}">
                 Video
             </a></li>
-            <li class="header-text"><a href="{% url "module_content_create" module.id "file" %}">
+            <li class="header-content"><a href="{% url "module_content_create" module.id "file" %}">
                 File
             </a></li>
         </ul>

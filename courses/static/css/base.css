@@ -197,7 +197,7 @@ input[type=submit]:hover {
 }
 
 ul#course-modules {
-    list-style:none;
+    list-style:none;14px
     overflow:auto;
 }
 
@@ -306,9 +306,16 @@ footer {
 }
 
 .header-text{
-    font-size: 30px;
+    font-size: 24px;
 }
 
+.header-content{
+    font-size: 20px;
+}
 .list-background{
     background-color: #eeeeee;
+}
+p{
+    font-size: 16px;
+    color: #000;
 }

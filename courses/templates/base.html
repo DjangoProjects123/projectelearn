@@ -22,7 +22,11 @@
       href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css">
     <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
     <script>hljs.initHighlightingOnLoad();</script>
+    {% block extrahead %}
 
+
+
+		{% endblock %}
 </head>
 
 <body>
@@ -75,7 +79,16 @@
 				<div style="background-color: #3fad37; " class="header_side d-flex flex-row justify-content-center align-items-center">
 
 					<img  src="images/phone-call.svg" alt="">
-					<span ><a style="color: white;" href="http://127.0.0.1:8000/accounts/login/?next=/course/mine/ ">Instructor Login</a></span>
+
+					{% if request.user.is_authenticated %}
+								<li class="main_nav_item">
+									<a href="{% url "logout" %}" style="color: white;">INSTRUCTOR LOGOUT</a>
+								</li>
+								{% else %}
+								<span ><a style="color: white;" href="http://127.0.0.1:8000/accounts/login/?next=/course/mine/ ">INSTRUCTOR LOGIN</a></span>
+								{% endif %}
+
+					
 				</div>
 
 				<!-- Hamburger -->
@@ -190,7 +203,7 @@
 <script src="{% static "plugins/scrollTo/jquery.scrollTo.min.js" %} "></script>
 <script src="{% static "plugins/easing/easing.js" %} "></script>
 <script src="{% static "js/courses_custom.js" %} "></script>
-<script src="{% static "canvasjs/Chart.js" %} "></script>
+<script src="{% static "canvasjs/canvasjs.min.js" %} "></script>
 
 <script>
 	$(document).ready(function () {
