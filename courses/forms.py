@@ -6,6 +6,7 @@ from .models import Course, Module, Subject
 from django.core.files.images import get_image_dimensions
 
 
+
 ModuleFormSet = inlineformset_factory(Course,
                                       Module,
                                       fields=['title',

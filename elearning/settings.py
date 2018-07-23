@@ -189,6 +189,7 @@ HAYSTACK_CONNECTIONS = {
 }
 
 
+
 # CKEDITOR_CONFIGS = {
 #     'default': {
 #         # 'skin': 'moono',
@@ -279,3 +280,4 @@ CKEDITOR_CONFIGS = {
         'extraPlugins': 'codesnippet', # < here
     }
 }
+

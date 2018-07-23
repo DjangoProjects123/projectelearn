@@ -9,25 +9,27 @@
 <div class="detail page_section"> 
 <div class="container">
 
-    <div class="row row-eq-height">
+    <div class="row ">
          <div class="col-md-12">
                 {% with subject=object.subject %}
-                <h1>
+                <h1 class="header-text">
                     {{ object.title }}
                 </h1>
                 <div class="module">
                     <h2>Overview</h2>
-                    <p>
+                    <p class="text-color">
                         <a href="{% url "course_list_subject" subject.slug %}">{{ subject.title }}</a>.
                         {{ object.modules.count }} modules.
                         Instructor: {{ object.owner.get_full_name }}
                     </p>
-                    {{ object.overview | safe }}
+                 
+                        {{ object.overview | safe }}
+                  
                     {% if request.user.is_authenticated %}
                         <form action="{% url "student_enroll_course" %}" method="post">
                             {{ enroll_form }}
                             {% csrf_token %}
-                            <input type="submit" class="button" value="Enroll now">
+                            <input type="submit" class="button" value="Enroll">
                         </form>
                     {% else %}
                         <a href="{% url "student_registration" %}" class="button">

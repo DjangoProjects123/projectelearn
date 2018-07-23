@@ -9,10 +9,11 @@
 {% endblock %}
 
 {% block content %}
-    <div class="lists page_section" style="margin-top: 120px;">
+    <div class="lists page_section" >
         <div class="block-list container container-fluid">
-            <div class="row">
+            <div class="row"> 
                 <div class="col-md-12">
+<<<<<<< HEAD
                     <h1>
 
                         {% if subject %}
@@ -37,24 +38,64 @@
                             {% endfor %}
                         </ul>
                     </div>
+=======
+                        <h1 class="header-text">
+>>>>>>> fdb5b12dbf038cf3f57a4abf5850e4b9d1b8975c
 
-                    <div class="module">
+                                {% if subject %}
+                                    {{ subject.title }} courses
+                                {% else %}
+                                    All courses
+                                {% endif %}
+                            </h1>
+                </div>           
+                    
+            </div>
 
-                        {% for course in courses %}
-                            {% with subject=course.subject %}
-                                <h3><a href="{% url "course_detail" course.slug %}">{{ course.title }}</a></h3>
-                                <p>
-                                    <a href="{% url "course_list_subject" subject.slug %}">{{ subject }}</a>.
+            <div class="row">
+                <div class="col-md-3">
+                        <div class="contents">
+                                <h3 class="header-text">Subjects</h3>
+                                <ul id="modules">
+                                    <li {% if not subject %}class="selected"{% endif %} class="header-text">
+                                        <a href="{% url "course_list" %}">All</a>
+                                    </li>
+                                    {% for s in subjects %}
+                                        <li {% if subject == s %}class="selected"{% endif %} class="header-text">
+                                            <a href="{% url "course_list_subject" s.slug %}">
+                                                {{ s.title }}
+                                                <br><span class="header-text">{{ s.total_courses }} courses</span>
+                                            </a>
+                                        </li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                </div>
 
-                                    {{ course.total_modules }} modules.
-                                    Instructor: {{ course.owner.get_full_name }}
-                                </p>
-                            {% endwith %}
-                        {% endfor %}
-                    </div>
+                {# module ryt side #}
+                <div class="col-md-9">
+                        <div class="gx-card" >
 
+                                {% for course in courses %}
+                                    {% with subject=course.subject %}
+                                        <h3 class="list-background" class="header-text"><a href="{% url "course_detail" course.slug %}">{{ course.title }}</a></h3>
+                                        <p class="list-background" class="text-color"  >
+                                            <a href="{% url "course_list_subject" subject.slug %}">{{ subject }}</a>.
+        
+                                            {{ course.total_modules }} modules.
+                                            Instructor: {{ course.owner.get_full_name }}
+                                        </p>
+                                    {% endwith %}
+                                {% endfor %}
+                            </div>
                 </div>
             </div>
+                    
+
+                   
+
+                
+        
 
 
         </div>

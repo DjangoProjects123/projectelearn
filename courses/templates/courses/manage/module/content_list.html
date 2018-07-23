@@ -6,81 +6,99 @@
 {% endblock %}
 
 {% block content %}
-   
-<div class="detail page_section">
-<div class="container">
+    <div class="lists page_section" >
+        <div class="block-list container container-fluid">
+           
+            <div class="row">
+                <div class="col-md-4">
+                        <div class="contents">
+                                {% with course=module.course %}
+                                <h2 class="header-text">Course "{{ course.title }}"</h2>
+                                <div class="contents">
+                                    <h3>Modules</h3>
+                                    <ul id="modules">
+                                        {% for m in course.modules.all %}
+                                            <li data-id="{{ m.id }}" {% if m == module %}
+                                                class="selected" {% endif %}>
+                                                <a href="{% url "module_content_list" m.id %}">
+                                                    <span>
+                                                        Module <span class="order">{{ m.order|add:1 }}</span>
+                                                    </span>
+                                                    <br/>
+                                                    {{ m.title }}
+                                                </a>
+                                            </li>
+                                        {% empty %}
+                                            <li>No modules yet.</li>
+                                        {% endfor %}
+                                    </ul>
+                                    <p><a href="{% url "course_module_update" course.id %}">Edit
+                                     modules</a></p>
+                                </div>                              
+                                    </div>
+                            </div>
+                
 
-    <div class="row row-eq-height">
-         <div class="col-md-12">
-                {% with course=module.course %}
-        <h1>Course "{{ course.title }}"</h1>
-        <div class="contents">
-            <h3>Modules</h3>
-            <ul id="modules">
-                {% for m in course.modules.all %}
-                    <li data-id="{{ m.id }}" {% if m == module %}
-                        class="selected" {% endif %}>
-                        <a href="{% url "module_content_list" m.id %}">
-                            <span>
-                                Module <span class="order">{{ m.order|add:1 }}</span>
-                            </span>
-                            <br/>
-                            {{ m.title }}
-                        </a>
-                    </li>
-                {% empty %}
-                    <li>No modules yet.</li>
-                {% endfor %}
-            </ul>
-            <p><a href="{% url "course_module_update" course.id %}">Edit
-             modules</a></p>
-        </div>
-        <!-- right side bar -->
-        <div class="module">
-            <h2>Module {{ module.order|add:1 }}: {{ module.title }}</h2>
-            <h3>Module contents:</h3>
+                {# module ryt side #}
+                <div class="col-md-8" >
+                        <div class="gx-card" >
+            <!-- right side bar -->
+            <div class="module">
+        <h2 class="header-text">Module {{ module.order|add:1 }}: {{ module.title }}</h2>
+        <h3>Module contents:</h3>
 
-            <div id="module-contents">
-                {% for content in module.contents.all %}
-                    <div data-id="{{ content.id }}">
-                        {% with item=content.item %}
-                            <p>{{ item }} ({{ item|model_name }})</p>
-                            <a href="{% url "module_content_update" module.id item|model_name item.id %}">Edit</a>
-                            <form action="{% url "module_content_delete" content.id %}" method="post">
-                                <input type="submit" value="Delete"/>
-                                {% csrf_token %}
-                            </form>
-                        {% endwith %}
-                    </div>
-                {% empty %}
-                    <p>This module has no contents yet.</p>
-                {% endfor %}
-            </div>
-            <hr/>
-            <h3>Add new content:</h3>
-            <ul class="content-types">
-                <li><a href="{% url "module_content_create" module.id "text" %}">
-                    Text
-                </a></li>
-                <li><a href="{% url "module_content_create" module.id "image" %}">
-                    Image
-                </a></li>
-                <li><a href="{% url "module_content_create" module.id "video" %}">
-                    Video
-                </a></li>
-                <li><a href="{% url "module_content_create" module.id "file" %}">
-                    File
-                </a></li>
-            </ul>
+        <div id="module-contents">
+            {% for content in module.contents.all %}
+                <div data-id="{{ content.id }}">
+                    {% with item=content.item %}
+                        <p class="header-text">{{ item }} ({{ item|model_name }})</p>
+                        <a class="header-text" href="{% url "module_content_update" module.id item|model_name item.id %}">Edit</a>
+                        <form action="{% url "module_content_delete" content.id %}" method="post">
+                            <input type="submit" value="Delete" />
+                            {% csrf_token %}
+                        </form>
+                    {% endwith %}
+                </div>
+            {% empty %}
+                <p class="header-text">This module has no contents yet.</p>
+            {% endfor %}
         </div>
-    {% endwith %}
-         </div>
+        <hr/>
+        <h3>Add new content:</h3>
+        <ul class="content-types">
+            <li class="header-text"><a href="{% url "module_content_create" module.id "text" %}">
+                Text
+            </a></li>
+            <li class="header-text"><a href="{% url "module_content_create" module.id "image" %}">
+                Image
+            </a></li>
+            <li class="header-text"><a href="{% url "module_content_create" module.id "video" %}">
+                Video
+            </a></li>
+            <li class="header-text"><a href="{% url "module_content_create" module.id "file" %}">
+                File
+            </a></li>
+        </ul>
     </div>
+{% endwith %}
+                               
+                            </div>
+                </div>
+            </div>
+                    
 
-</div>
-</div>
+                   
+
+                
+        
+
+
+        </div>
+    
+
 
 {% endblock %}
+
 
 {% block domready %}
 
@@ -126,3 +144,7 @@ $('#module-contents').sortable({
     }
 });
 {% endblock %}
+
+
+
+
