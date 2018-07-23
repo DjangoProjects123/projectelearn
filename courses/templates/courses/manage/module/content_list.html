@@ -15,24 +15,24 @@
                                 {% with course=module.course %}
                                 <h2 class="header-text">Course "{{ course.title }}"</h2>
                                 <div class="contents">
-                                    <h3>Modules</h3>
+                                    <h3 style="font-size: 30px;">Modules</h3>
                                     <ul id="modules">
                                         {% for m in course.modules.all %}
                                             <li data-id="{{ m.id }}" {% if m == module %}
                                                 class="selected" {% endif %}>
                                                 <a href="{% url "module_content_list" m.id %}">
-                                                    <span>
-                                                        Module <span class="order">{{ m.order|add:1 }}</span>
+                                                    <span style="font-size: 30px;">
+                                                        Module <span style="font-size: 30px;" class="order">{{ m.order|add:1 }}</span>
                                                     </span>
                                                     <br/>
                                                     {{ m.title }}
                                                 </a>
                                             </li>
                                         {% empty %}
-                                            <li>No modules yet.</li>
+                                            <li style="font-size: 30px;">No modules yet.</li>
                                         {% endfor %}
                                     </ul>
-                                    <p><a href="{% url "course_module_update" course.id %}">Edit
+                                    <p style="font-size: 30px;"><a href="{% url "course_module_update" course.id %}">Edit
                                      modules</a></p>
                                 </div>                              
                                     </div>
@@ -54,7 +54,7 @@
                         <p class="header-text">{{ item }} ({{ item|model_name }})</p>
                         <a class="header-text" href="{% url "module_content_update" module.id item|model_name item.id %}">Edit</a>
                         <form action="{% url "module_content_delete" content.id %}" method="post">
-                            <input type="submit" value="Delete" />
+                            <input style="font-size: 30px;" type="submit" value="Delete" />
                             {% csrf_token %}
                         </form>
                     {% endwith %}

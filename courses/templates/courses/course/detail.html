@@ -32,10 +32,12 @@
                             <input type="submit" class="button" value="Enroll">
                         </form>
                     {% else %}
-                        <a href="{% url "student_registration" %}" class="button">
+                      
+                        <a   href="{% url "student_registration" %}" class="button">
                             Register to enroll
                         </a>
                     {% endif %}
+                    <br style="margin-bottom: 200px;">
                 </div>
             {% endwith %}
          </div>

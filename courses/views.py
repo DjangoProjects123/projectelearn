@@ -237,14 +237,16 @@ class CourseHomeView(TemplateResponseMixin, View):
         if not subjects:
             subjects = Subject.objects.annotate(total_courses=Count('courses'))
             cache.set('all_subjects', subjects)
-        all_courses = Course.objects.annotate(total_modules=Count('modules'))
-        if subject:
-            subject = get_object_or_404(Subject, slug=subject)
-            key = 'subject_{}_courses'.format(subject.id)
-           
-       
+
+        courses = cache.get('all_courses')  
+        all_courses = Course.objects.annotate(total_students = Count('students'))
+        courses = all_courses.order_by('-total_students')
+        cache.set('all_courses', courses)
+              
+
         return self.render_to_response({'subjects': subjects,
-                                        'subject': subject
+                                        'courses': courses
+
                                        })
 
 

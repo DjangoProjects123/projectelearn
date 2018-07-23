@@ -50,6 +50,8 @@ INSTALLED_APPS = [
     'rest_framework',
     'haystack',
     'whoosh',
+    'password_reset',
+    'analytics',
     
    
 ]
@@ -176,6 +178,7 @@ CKEDITOR_JQUERY_URL = 'https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery
 #         'width': 900,
 #     },
 # }
+
 WHOOSH_INDEX=os.path.join(BASE_DIR, 'whoosh/')
 HAYSTACK_CONNECTIONS = {
     'default': {
@@ -188,6 +191,7 @@ CKEDITOR_CONFIGS = {
     'default': {
         
          'toolbar': 'Custom',
+         
         'toolbar_YourCustomToolbarConfig': [
             {'name': 'document', 'items': ['Source', '-', 'Save', 'NewPage', 'Preview', 'Print', '-', 'Templates']},
             {'name': 'clipboard', 'items': ['Cut', 'Copy', 'Paste', 'PasteText', 'PasteFromWord', '-', 'Undo', 'Redo']},
@@ -218,6 +222,14 @@ CKEDITOR_CONFIGS = {
                 
 
             ]},
+            '/',
+             {'name': 'styles', 'items': ['Styles', 'Format', 'Font', 'FontSize']},
+            {'name': 'colors', 'items': ['TextColor', 'BGColor']},
+            {'name': 'tools', 'items': ['Maximize', 'ShowBlocks']},
+            {'name': 'about', 'items': ['About']},
+            '/',  # put this to force next toolbar on new line
+            {'font_names': 'IRANSans; Yekan; Bnasim; Bkoodak'},
+            
             
             
         ],
@@ -225,3 +237,12 @@ CKEDITOR_CONFIGS = {
     },
 }
 
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = '465'
+EMAIL_HOST_USER = 'winterdelta708@gmail.com'
+EMAIL_HOST_PASSWORD = '123456789ABCD'
+EMAIL_USE_TLS = True
+DEFAULT_FROM_EMAIL = 'winterdelta708@gmail.com'
+DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
+SERVER_EMAIL = EMAIL_HOST_USER

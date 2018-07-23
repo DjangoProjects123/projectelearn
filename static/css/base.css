@@ -31,7 +31,7 @@ h1 {
     background:#efefef;
     width:100%;
     overflow:auto;
-    padding:20px 0 20px 40px;
+    padding:30px 0 30px 40px;
     margin:0;
 }
 
@@ -80,7 +80,7 @@ h1 {
 }
 
 .contents {
-    width:20%;
+    width:100%;
     padding:10px;
     float:left;
     background:#333;
@@ -125,10 +125,7 @@ h1 {
     color:#4dcc43;
 }
 
-.module {
-    padding:10px 20px;
-    float:left;
-}
+
 
 ul.content-types li {
     list-style:none;
@@ -186,6 +183,8 @@ input[type=submit], a.button {
     padding:10px 20px;
     margin:20px 0;
 }
+
+
 
 a.secondary-button {
     border:3px solid #4dcc43;
@@ -300,3 +299,16 @@ footer {
 
 }
 
+.text-color{
+    color: #333;
+    font-size: 20px;
+    
+}
+
+.header-text{
+    font-size: 30px;
+}
+
+.list-background{
+    background-color: #eeeeee;
+}

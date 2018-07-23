@@ -17,10 +17,12 @@ from django.conf.urls import include, url
 
 from django.contrib import admin
 from django.contrib.auth import views as auth_views
+from django.contrib.auth.views import password_reset,password_reset_done,password_reset_confirm,password_reset_complete
 from courses.views import CourseHomeView, CourseListView
 from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
+
 
 
 urlpatterns = [
@@ -34,6 +36,13 @@ urlpatterns = [
     url(r'^students/', include('students.urls')),
     url(r'^api/', include('courses.api.urls', namespace='api')),
     url(r'search/', include('haystack.urls')),
+    url(r'^password_reset/$', auth_views.password_reset, name='password_reset'),
+    url(r'^password_reset/done/$',auth_views.password_reset_done, name='password_reset_done'),
+    url(r'^analytics/', include('analytics.urls')),
+    url(r'reset/(?P<uidb64>[0-9A-Za-z_\-]+)/(?P<token>[0-9A-Za-z]{1,13}-[0-9A-Za-z]{1,20})/$',
+        auth_views.password_reset_confirm, name='password_reset_confirm'),
+
+    url(r'reset/done/$', auth_views.password_reset_complete, name='password_reset_complete'),
 ]
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
