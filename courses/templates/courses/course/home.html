@@ -1,19 +1,20 @@
 {% extends "base.html" %}
-{% load static %}
+{% load staticfiles %}
 {% block title %}
     Home
 {% endblock %}
 
 {% block content %}
 
-<!-- Home -->
+
+	<!-- Home -->
 
 <div class="home">
 		<div class="home_background_container prlx_parent">
 			<div class="home_background prlx" style="background-image:url({% static "images/courses_background.jpg" %})"></div>
 		</div>
-		<div class="home_content">
-                <span class="text-welcome">Welcome To Elimu</span>
+		<div style="background-color: #3fad37; " class="home_content">
+                <span style="color: white" class="text-welcome">Welcome To Elimu</span>
 		</div>
 	</div>
 
@@ -22,15 +23,13 @@
 				<div class="row">
 					<div class="col">
 						<div class="section_title text-center">
-                            <h1>Subjects</h1>
-                            
-                                   
+							<h1 style="color: #3fad37;">Subjects</h1>
 						</div>
 					</div>
 				</div>
-	
+
 				<div class="row course_boxes">
-					
+
                     <!-- Popular Course Item -->
                     {% for s in subjects %}
 
@@ -40,10 +39,11 @@
 
                             <div class="card">
                                 <a href="{% url "course_list_subject" s.slug %}">
-                                    <img class="card-img-top" src="{% static "images/course_1.jpg" %}" alt="https://unsplash.com/@kellybrito">
+                                    <img class="card-img-top" src="{{ s.image.url }}" alt="https://unsplash.com/@kellybrito" width="350px" height="264px">
+{#                                    <img class="card-img-top" src="{% static "images/course_1.jpg" %}" alt="https://unsplash.com/@kellybrito">#}
                                     <div class="card-body text-center">
-                                        <div class="card-title">{{ s.title }}</div>
-                                        <div class="card-text"><span>{{ s.total_courses }} courses</span></div>
+                                        <div style="color: #3fad37; font-weight: 28px;" class="card-title">{{ s.title }}</div>
+                                        <div style="color: #000; font-weight: 50px; font-size: 16px;" class="card-text"><span>{{ s.total_courses }} units</span></div>
                                     </div>
 
                                 </a>
@@ -51,8 +51,8 @@
 
                         </div>
 
-                    {% endfor %}                                      		
-					
+                    {% endfor %}
+
                 </div>
                 
                 <!-- Popular -->
@@ -62,7 +62,7 @@
                 <div class="row">
                     <div class="col">
                         <div class="section_title text-center">
-                            <h1>Popular Courses</h1>
+                            <h1 style="color: #3fad37;">Popular Units</h1>
                         </div>
                     </div>
                 </div>
@@ -74,10 +74,10 @@
                             <div class="col-lg-4 course_box" >
                                 <div class="card">
                                     <a href="{% url "course_list_subject" subject.slug %}">
-                                        <img class="card-img-top" src="{% static "images/course_1.jpg" %}" alt="https://unsplash.com/@kellybrito">
+                                        <img class="card-img-top" src="{% static "images/course_1.jpg" %}" alt="https://unsplash.com/@kellybrito" width="340px" height="256px">
                                         <div class="card-body text-center">
-                                            <div class="card-title">{{ course.title }}</div>
-                                            <div class="card-text"><span>{{ course.total_students}} enrolled</span></div>
+                                            <div style="color: #3fad37;" class="card-title">{{ course.title }}</div>
+                                            <div style="color: #000; font-size: 16px;" class="card-text"><span>{{ course.total_students}} enrolled</span></div>
                                         </div>
     
                                     </a>

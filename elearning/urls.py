@@ -28,7 +28,7 @@ from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 urlpatterns = [
     url(r'^accounts/login/$', auth_views.login, name='login'),
     url(r'^accounts/logout/$', auth_views.logout, name='logout'),
-    url(r'^admin/', admin.site.urls),
+    url(r'^admin/', admin.site.urls, name='admin'),
     url(r'^ckeditor/', include('ckeditor_uploader.urls')),
     url(r'^course/', include('courses.urls')),
     url(r'^$', CourseHomeView.as_view(), name='course_home'),

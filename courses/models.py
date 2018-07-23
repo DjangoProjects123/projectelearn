@@ -14,6 +14,7 @@ from django import forms
 class Subject(models.Model):
     title = models.CharField(max_length=200)
     slug = models.SlugField(max_length=200, unique=True)
+    image = models.ImageField(upload_to='subject_pics/', default='/static/images/course_1.jpg')
 
     class Meta:
         ordering = ('title',)
@@ -35,6 +36,7 @@ class Course(models.Model):
     students = models.ManyToManyField(User,
                                       related_name='courses_joined',
                                       blank=True)
+    image = models.ImageField(upload_to='course_pics/', default='/static/images/course_2.jpg')
 
     # # Create a property that returns the markdown instead
     # @property

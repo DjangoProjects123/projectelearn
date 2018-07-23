@@ -78,36 +78,36 @@
     window.onload = function() { 
        // my django variables go here 
        //i will need an array of courses and the total number of students in it
-var ctx = document.getElementById("pieChartStudentCourse").getContext('2d');
-var myChart = new Chart(ctx, {
-    type: 'pie',
-    data: { 
-             
-            datasets: [{
-                label: 'Number of students per course',                  
-                backgroundColor: [
-                    'rgba(255,0,0, 0.7)',
-                    'rgba(0,200,0, 0.7)',
-                    'rgba( 200,255,0,0.7)',
-                    'rgba(0,155,255, 0.7)',
-                                         
-                ],
-                borderColor: [
-                    
-                ],
-                borderWidth: 1
-                 }]
-             },
-            options: {
-                scales: {
-                    yAxes: [{
-                        ticks: {
-                            beginAtZero:true
+            var ctx = document.getElementById("pieChartStudentCourse").getContext('2d');
+            var myChart = new Chart(ctx, {
+                type: 'pie',
+                data: { 
+                        
+                        datasets: [{
+                            label: 'Number of students per course',                  
+                            backgroundColor: [
+                                'rgba(255,0,0, 0.7)',
+                                'rgba(0,200,0, 0.7)',
+                                'rgba( 200,255,0,0.7)',
+                                'rgba(0,155,255, 0.7)',
+                                                    
+                            ],
+                            borderColor: [
+                                
+                            ],
+                            borderWidth: 1
+                            }]
+                        },
+                        options: {
+                            scales: {
+                                yAxes: [{
+                                    ticks: {
+                                        beginAtZero:true
+                                    }
+                                }]
+                            }
                         }
-                    }]
-                }
-            }
-        });
+                    });
          
         
     }

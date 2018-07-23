@@ -1,13 +1,13 @@
 {% extends "base.html" %}
 
-{% block title %}My courses{% endblock %}
+{% block title %}My Units{% endblock %}
 
 {% block content %}
     <div class="page_section">
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <h1>My courses</h1>
+                    <h1>My Units</h1>
 
                     <div class="module">
                         {% for course in object_list %}
@@ -17,8 +17,8 @@
                             </div>
                         {% empty %}
                             <p>
-                                You are not enrolled in any courses yet.
-                                <a href="{% url "course_list" %}">Browse courses</a> to enroll in a course.
+                                You are not enrolled in any units yet.
+                                <a href="{% url "course_list" %}">Browse units</a> to enroll in a unit.
                             </p>
                         {% endfor %}
                     </div>

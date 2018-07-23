@@ -2,9 +2,9 @@
 
 {% block title %}
     {% if subject %}
-        {{ subject.title }} courses
+        {{ subject.title }} units
     {% else %}
-        All courses
+        All units
     {% endif %}
 {% endblock %}
 
@@ -13,14 +13,15 @@
         <div class="block-list container container-fluid">
             <div class="row"> 
                 <div class="col-md-12">
-                        <h1 class="header-text">
+                    <h1 class="header-text">
 
-                                {% if subject %}
-                                    {{ subject.title }} courses
-                                {% else %}
-                                    All courses
-                                {% endif %}
-                            </h1>
+                        {% if subject %}
+                            {{ subject.title }} units
+                        {% else %}
+                            All units
+                        {% endif %}
+                    </h1>
+                   
                 </div>           
                     
             </div>
