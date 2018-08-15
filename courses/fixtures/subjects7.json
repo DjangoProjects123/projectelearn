@@ -1,0 +1,583 @@
+[
+{
+  "model": "courses.subject",
+  "fields": {
+    "title": "Mathematics",
+    "slug": "mathematics",
+    "image": "subject_pics/mathematics-sports-betting.jpg"
+  },
+  "pk": 1
+},
+{
+  "model": "courses.subject",
+  "fields": {
+    "title": "Physics",
+    "slug": "physics",
+    "image": "subject_pics/phu4.jpg"
+  },
+  "pk": 3
+},
+{
+  "model": "courses.subject",
+  "fields": {
+    "title": "Programming",
+    "slug": "programming",
+    "image": "subject_pics/course_2_0wNEm5t.jpg"
+  },
+  "pk": 4
+},
+{
+  "model": "courses.subject",
+  "fields": {
+    "title": "Business",
+    "slug": "business",
+    "image": "subject_pics/biz3.png"
+  },
+  "pk": 5
+},
+{
+  "model": "courses.course",
+  "fields": {
+    "owner": 2,
+    "subject": 1,
+    "title": "Calculus",
+    "slug": "calculus",
+    "overview": "<p>Calculus is a branch of Mathematics and a vast domain in itself. You will study calculus in detail in 12th&nbsp;standard Mathematics.</p>\r\n\r\n<p>Calculus has extensive use in Physics in all of its domains.</p>\r\n\r\n<p>Integral calculus is majorly used &minus;</p>\r\n\r\n<ul>\r\n\t<li>\r\n\t<p>As a reverse process of differentiation</p>\r\n\t</li>\r\n\t<li>\r\n\t<p>For calculating area under the curve/graph of any function.</p>\r\n\t</li>\r\n</ul>\r\n",
+    "created": "2018-07-23T15:08:40.596Z",
+    "image": "/static/images/course_2.jpg",
+    "students": [
+      2,
+      4,
+      5,
+      6
+    ]
+  },
+  "pk": 5
+},
+{
+  "model": "courses.course",
+  "fields": {
+    "owner": 3,
+    "subject": 5,
+    "title": "Entrepreneurship",
+    "slug": "entrepreneurship",
+    "overview": "<p>Learn Entrepreneurship in a small number of steps</p>\r\n",
+    "created": "2018-07-23T15:50:43.343Z",
+    "image": "/static/images/course_2.jpg",
+    "students": [
+      3,
+      5
+    ]
+  },
+  "pk": 6
+},
+{
+  "model": "courses.course",
+  "fields": {
+    "owner": 4,
+    "subject": 3,
+    "title": "Principles of Electrical Engineering",
+    "slug": "principles_of_electrical_engineering",
+    "overview": "<p>The fundamental principles of electrical engineering are:<br />\r\n<br />\r\nElectron transfer (Ohm&#39;s law, Kirchoff&#39;s laws, Faraday&#39;s law and Coulomb&#39;s law, and for those interested in semiconductor devices, electronic band theory and drift/diffusion current) and electromagnetic energy transfer (Maxwell&#39;s equations)<br />\r\n<br />\r\nBoolean logical operators and the mechanics of how they can be electronically implemented (AND, OR, NOT, etc.)<br />\r\n<br />\r\nand LTI systems (linear time invariant) and steady state response.<br />\r\n<br />\r\nEverything in EE can be derived from these fundamentals.</p>\r\n",
+    "created": "2018-07-23T16:13:30.280Z",
+    "image": "/static/images/course_2.jpg",
+    "students": [
+      4
+    ]
+  },
+  "pk": 7
+},
+{
+  "model": "courses.module",
+  "fields": {
+    "course": 5,
+    "title": "Limits",
+    "description": "<p>Introduction to limits in calculus</p>\r\n",
+    "order": 0
+  },
+  "pk": 10
+},
+{
+  "model": "courses.module",
+  "fields": {
+    "course": 5,
+    "title": "Derivatives",
+    "description": "<p>An introduction to derivatives</p>\r\n",
+    "order": 1
+  },
+  "pk": 11
+},
+{
+  "model": "courses.module",
+  "fields": {
+    "course": 6,
+    "title": "What is Entrepreneurship?",
+    "description": "<h1>&nbsp;Entrepreneur Definition and Meaning</h1>\r\n",
+    "order": 0
+  },
+  "pk": 12
+},
+{
+  "model": "courses.module",
+  "fields": {
+    "course": 6,
+    "title": "Importance of Entrepreneurship",
+    "description": "<p>What are the advantages of&nbsp;<strong>Importance of Entrepreneurship</strong></p>\r\n",
+    "order": 1
+  },
+  "pk": 13
+},
+{
+  "model": "courses.module",
+  "fields": {
+    "course": 7,
+    "title": "Introduction ",
+    "description": "<p>An&nbsp;Introduction and course overview</p>\r\n",
+    "order": 0
+  },
+  "pk": 14
+},
+{
+  "model": "courses.module",
+  "fields": {
+    "course": 7,
+    "title": "General Objectives ",
+    "description": "<p>Outline</p>\r\n",
+    "order": 1
+  },
+  "pk": 15
+},
+{
+  "model": "courses.content",
+  "fields": {
+    "module": 10,
+    "content_type": 5,
+    "object_id": 2,
+    "order": 0
+  },
+  "pk": 6
+},
+{
+  "model": "courses.content",
+  "fields": {
+    "module": 10,
+    "content_type": 7,
+    "object_id": 2,
+    "order": 1
+  },
+  "pk": 7
+},
+{
+  "model": "courses.content",
+  "fields": {
+    "module": 10,
+    "content_type": 8,
+    "object_id": 3,
+    "order": 2
+  },
+  "pk": 8
+},
+{
+  "model": "courses.content",
+  "fields": {
+    "module": 10,
+    "content_type": 6,
+    "object_id": 2,
+    "order": 3
+  },
+  "pk": 9
+},
+{
+  "model": "courses.content",
+  "fields": {
+    "module": 11,
+    "content_type": 5,
+    "object_id": 3,
+    "order": 0
+  },
+  "pk": 10
+},
+{
+  "model": "courses.content",
+  "fields": {
+    "module": 11,
+    "content_type": 7,
+    "object_id": 3,
+    "order": 1
+  },
+  "pk": 11
+},
+{
+  "model": "courses.content",
+  "fields": {
+    "module": 11,
+    "content_type": 8,
+    "object_id": 4,
+    "order": 2
+  },
+  "pk": 12
+},
+{
+  "model": "courses.content",
+  "fields": {
+    "module": 12,
+    "content_type": 5,
+    "object_id": 4,
+    "order": 0
+  },
+  "pk": 13
+},
+{
+  "model": "courses.content",
+  "fields": {
+    "module": 12,
+    "content_type": 7,
+    "object_id": 4,
+    "order": 1
+  },
+  "pk": 14
+},
+{
+  "model": "courses.content",
+  "fields": {
+    "module": 12,
+    "content_type": 8,
+    "object_id": 5,
+    "order": 2
+  },
+  "pk": 15
+},
+{
+  "model": "courses.content",
+  "fields": {
+    "module": 12,
+    "content_type": 6,
+    "object_id": 3,
+    "order": 3
+  },
+  "pk": 16
+},
+{
+  "model": "courses.content",
+  "fields": {
+    "module": 13,
+    "content_type": 5,
+    "object_id": 5,
+    "order": 0
+  },
+  "pk": 17
+},
+{
+  "model": "courses.content",
+  "fields": {
+    "module": 13,
+    "content_type": 8,
+    "object_id": 6,
+    "order": 1
+  },
+  "pk": 18
+},
+{
+  "model": "courses.content",
+  "fields": {
+    "module": 14,
+    "content_type": 5,
+    "object_id": 6,
+    "order": 0
+  },
+  "pk": 19
+},
+{
+  "model": "courses.content",
+  "fields": {
+    "module": 14,
+    "content_type": 8,
+    "object_id": 7,
+    "order": 1
+  },
+  "pk": 20
+},
+{
+  "model": "courses.content",
+  "fields": {
+    "module": 14,
+    "content_type": 6,
+    "object_id": 4,
+    "order": 2
+  },
+  "pk": 21
+},
+{
+  "model": "courses.content",
+  "fields": {
+    "module": 15,
+    "content_type": 5,
+    "object_id": 7,
+    "order": 0
+  },
+  "pk": 22
+},
+{
+  "model": "courses.content",
+  "fields": {
+    "module": 15,
+    "content_type": 8,
+    "object_id": 8,
+    "order": 1
+  },
+  "pk": 23
+},
+{
+  "model": "courses.text",
+  "fields": {
+    "owner": 1,
+    "title": "Why Django",
+    "created": "2018-07-15T20:15:53.769Z",
+    "updated": "2018-07-15T20:15:53.769Z",
+    "content": "Django helps you to quickly develop a website and deploy in zero time. With this course you will be learn all the knicks and perks of django"
+  },
+  "pk": 1
+},
+{
+  "model": "courses.text",
+  "fields": {
+    "owner": 2,
+    "title": "Introduction to Limits in Calculus",
+    "created": "2018-07-23T15:26:09.229Z",
+    "updated": "2018-07-23T15:26:09.229Z",
+    "content": "<p>We intend to give a numerical and graphical approaches to the concept of limits using examples.</p>\r\n\r\n<h2>Numerical Approach to Limits</h2>\r\n\r\n<p><strong>Example 1:</strong>&nbsp;Let f(x) = 2 x + 2 and compute f(x) as x takes values closer to 1. We first consider values of x approaching 1 from the left (x &lt; 1).</p>\r\n\r\n<table border=\"1\">\r\n\t<tbody>\r\n\t\t<tr>\r\n\t\t\t<td>x</td>\r\n\t\t\t<td>f(x)</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>0.5</td>\r\n\t\t\t<td>3</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>0.8</td>\r\n\t\t\t<td>3.6</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>0.9</td>\r\n\t\t\t<td>3.8</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>0.95</td>\r\n\t\t\t<td>3.9</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>0.99</td>\r\n\t\t\t<td>3.98</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>0.999</td>\r\n\t\t\t<td>3.998</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>0.9999</td>\r\n\t\t\t<td>3.9998</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>0.99999</td>\r\n\t\t\t<td>3.99998</td>\r\n\t\t</tr>\r\n\t</tbody>\r\n</table>\r\n\r\n<p><br />\r\n<br />\r\nWe now consider x approaching 1 from the right (x &gt; 1).&nbsp;<br />\r\n&nbsp;</p>\r\n\r\n<table border=\"1\">\r\n\t<tbody>\r\n\t\t<tr>\r\n\t\t\t<td>x</td>\r\n\t\t\t<td>f(x)</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>1.5</td>\r\n\t\t\t<td>5</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>1.2</td>\r\n\t\t\t<td>4.4</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>1.1</td>\r\n\t\t\t<td>4.2</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>1.05</td>\r\n\t\t\t<td>4.1</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>1.01</td>\r\n\t\t\t<td>4.02</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>1.001</td>\r\n\t\t\t<td>4.002</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>1.0001</td>\r\n\t\t\t<td>4.0002</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>1.00001</td>\r\n\t\t\t<td>4.00002</td>\r\n\t\t</tr>\r\n\t</tbody>\r\n</table>\r\n"
+  },
+  "pk": 2
+},
+{
+  "model": "courses.text",
+  "fields": {
+    "owner": 2,
+    "title": "How to do the Limit Definition of Derivative?",
+    "created": "2018-07-23T15:34:10.629Z",
+    "updated": "2018-07-23T15:34:10.629Z",
+    "content": "<p>We are about to embark on a most incredible journey&hellip;the&nbsp;<strong>Definition of Derivative</strong>!</p>\r\n\r\n<p>In light of our understanding of limits, many of the old processes and formulas we learned from Algebra and Precalculus are going to take on new meaning.</p>\r\n\r\n<p>In fact, our eyes are about to be illuminated by seeing how the simple method for finding the slope of a line can be transformed into the powerful formula for obtaining the slope of any function!</p>\r\n\r\n<p>So far in our study of limits, we have learned how to compute the average rate of change (instantaneous velocity) of a function at a single point.</p>\r\n\r\n<p>But wouldn&rsquo;t it be amazing if we could find the rate of change for any point on a curve?</p>\r\n\r\n<p>Introducing&hellip; the Limit Definition of Derivative!</p>\r\n"
+  },
+  "pk": 3
+},
+{
+  "model": "courses.text",
+  "fields": {
+    "owner": 3,
+    "title": "Understand  Entrepreneurship",
+    "created": "2018-07-23T15:55:38.189Z",
+    "updated": "2018-07-23T15:55:38.189Z",
+    "content": "<p>Entrepreneurship is the act of creating a business or businesses while building and scaling it to generate a profit. However, as a basic entrepreneurship definition, it&rsquo;s a bit limiting. The more modern entrepreneurship definition is also about transforming the world by solving big problems. Like initiating&nbsp;<a href=\"https://www.oberlo.com/ebooks/get-sales-dropshipping/social-responsibility\">social change</a>, creating an innovative product or presenting a new life-changing solution.</p>\r\n\r\n<p>It can even help lower unemployment rates through job creation to help reduce poverty. Entrepreneurship is what people do to take their career and dreams into their hands and lead it in the direction of their own choice. It&rsquo;s about building a&nbsp;<a href=\"https://www.oberlo.com/blog/digital-nomad\">life on your own terms</a>. No bosses. No restricting schedules. And no one holding you back. Entrepreneurs are able to take the first step into making the world a better place, for everyone in it.</p>\r\n"
+  },
+  "pk": 4
+},
+{
+  "model": "courses.text",
+  "fields": {
+    "owner": 3,
+    "title": "Importance of Entrepreneurship",
+    "created": "2018-07-23T16:01:04.570Z",
+    "updated": "2018-07-23T16:04:23.453Z",
+    "content": "<h2><img alt=\"what is entrepreneurship\" src=\"https://1enu9c17f1aj3pmqfi35l21c-wpengine.netdna-ssl.com/wp-content/uploads/2017/10/what-is-entrepreneurship-importance.jpg\" style=\"height:450px; width:880px\" /></h2>\r\n\r\n<p>Entrepreneurs are often superhumans. Their&nbsp;<a href=\"https://www.oberlo.com/blog/business-skills-to-start-online-store\">business skills</a>&nbsp;include being smart, creative, and ambitious. An entrepreneur is the person who sees a problem in the world and immediately focuses on creating the solution. They&rsquo;re the leaders that strike out on their own to improve society. Whether they&rsquo;re creating jobs or a new product, they constantly take action to ensure world progress. In the process of understanding what is entrepreneurship, let&rsquo;s look at why entrpreneurs are important in society.&nbsp;</p>\r\n\r\n<ul>\r\n\t<li>Entrepreneurs create jobs: Without entrepreneurs, jobs wouldn&rsquo;t exist. Entrepreneurs take on the risk to employ themselves. Their ambition to continue their business&rsquo; growth eventually leads to the creation of new jobs. As their business continues to grow, even more jobs are created. Thus, lowering unemployment rates while helping people feed their families.</li>\r\n\t<li>Entrepreneurs create change: Entrepreneurs dream big so naturally some of their ideas will make worldwide change. They might create a new product that solves a burning problem or take on the challenge to explore something never explored before. Many believe in improving the world with their products, ideas or businesses.</li>\r\n\t<li>Entrepreneurs give to society: While some have this notion of the rich being evil and greedy, they often do more for the greater good than the average person. They&nbsp;<a href=\"https://www.oberlo.com/blog/how-to-make-money-fast\">make more money</a>&nbsp;and thus pay more in taxes which helps fund social services. Entrepreneurs are some of the biggest donors to charities and nonprofits for various causes. Some seek to invest their money in creating solutions to help poorer communities have access to things we take for granted like clean drinking water and good health care.</li>\r\n</ul>\r\n"
+  },
+  "pk": 5
+},
+{
+  "model": "courses.text",
+  "fields": {
+    "owner": 4,
+    "title": "Get started",
+    "created": "2018-07-23T16:15:46.062Z",
+    "updated": "2018-07-23T16:15:46.062Z",
+    "content": "<p>This module unit is intended to equip the trainee with knowledge, skills and attitude required lo understand the basic electrical engineering principles necessary for training in the area of trade.</p>\r\n"
+  },
+  "pk": 6
+},
+{
+  "model": "courses.text",
+  "fields": {
+    "owner": 4,
+    "title": "General Objectives",
+    "created": "2018-07-23T16:18:09.199Z",
+    "updated": "2018-07-23T16:18:09.199Z",
+    "content": "<p>At the end of the module unit, the trainee should be able to: a) Understand the concepts of electrical quantities b) Perform basic calculations on dc and ac circuits c) Explain the behaviour of magnetic materials, magnetism and electromagnetism d) Describe the construction and operation of dc sources e) Explain the basic concepts of ac generation f) Describe the theory of dielectrics, principles and characteristics of capacitors g) Analyze analogue ac and dc meters</p>\r\n"
+  },
+  "pk": 7
+},
+{
+  "model": "courses.file",
+  "fields": {
+    "owner": 1,
+    "title": "Calculus book",
+    "created": "2018-07-16T20:11:44.284Z",
+    "updated": "2018-07-16T20:11:44.284Z",
+    "file": "files/Ashlee_Vance_Elon_Musk.pdf"
+  },
+  "pk": 1
+},
+{
+  "model": "courses.file",
+  "fields": {
+    "owner": 2,
+    "title": "Limits",
+    "created": "2018-07-23T15:31:34.815Z",
+    "updated": "2018-07-23T15:31:34.815Z",
+    "file": "files/limits.pdf"
+  },
+  "pk": 2
+},
+{
+  "model": "courses.file",
+  "fields": {
+    "owner": 3,
+    "title": "entrepreneurship-101",
+    "created": "2018-07-23T15:59:40.021Z",
+    "updated": "2018-07-23T15:59:40.021Z",
+    "file": "files/entrepreneurship-101.pdf"
+  },
+  "pk": 3
+},
+{
+  "model": "courses.file",
+  "fields": {
+    "owner": 4,
+    "title": "Intro_Elec_Eng (1)",
+    "created": "2018-07-23T16:17:35.709Z",
+    "updated": "2018-07-23T16:17:35.709Z",
+    "file": "files/Intro_Elec_Eng.pdf"
+  },
+  "pk": 4
+},
+{
+  "model": "courses.image",
+  "fields": {
+    "owner": 1,
+    "title": "Wildlife",
+    "created": "2018-07-16T20:08:59.618Z",
+    "updated": "2018-07-16T20:08:59.618Z",
+    "file": "images/pexels-photo-490411.jpeg"
+  },
+  "pk": 1
+},
+{
+  "model": "courses.image",
+  "fields": {
+    "owner": 2,
+    "title": "Understanding limit notation",
+    "created": "2018-07-23T15:27:56.077Z",
+    "updated": "2018-07-23T15:27:56.077Z",
+    "file": "images/understanding-limit-notation.png"
+  },
+  "pk": 2
+},
+{
+  "model": "courses.image",
+  "fields": {
+    "owner": 2,
+    "title": "definition-derivative-formulas ",
+    "created": "2018-07-23T15:34:47.415Z",
+    "updated": "2018-07-23T15:34:47.415Z",
+    "file": "images/definition-derivative-formulas.png"
+  },
+  "pk": 3
+},
+{
+  "model": "courses.image",
+  "fields": {
+    "owner": 3,
+    "title": "what-is-entrepreneurship-real-entrepreneurs",
+    "created": "2018-07-23T15:57:01.999Z",
+    "updated": "2018-07-23T15:57:01.999Z",
+    "file": "images/what-is-entrepreneurship-real-entrepreneurs.jpg"
+  },
+  "pk": 4
+},
+{
+  "model": "courses.video",
+  "fields": {
+    "owner": 1,
+    "title": "Django intro",
+    "created": "2018-07-15T20:14:44.392Z",
+    "updated": "2018-07-15T20:14:44.392Z",
+    "url": "https://www.youtube.com/watch?v=n-FTlQ7Djqc"
+  },
+  "pk": 1
+},
+{
+  "model": "courses.video",
+  "fields": {
+    "owner": 1,
+    "title": "video",
+    "created": "2018-07-16T20:11:14.533Z",
+    "updated": "2018-07-16T20:11:14.533Z",
+    "url": "https://www.youtube.com/watch?v=riXcZT2ICjA"
+  },
+  "pk": 2
+},
+{
+  "model": "courses.video",
+  "fields": {
+    "owner": 2,
+    "title": "Finding limits graphically",
+    "created": "2018-07-23T15:29:49.312Z",
+    "updated": "2018-07-23T15:29:49.312Z",
+    "url": "https://www.youtube.com/watch?v=7Q2HwTHcxA0"
+  },
+  "pk": 3
+},
+{
+  "model": "courses.video",
+  "fields": {
+    "owner": 2,
+    "title": "definition-derivative-formulas ",
+    "created": "2018-07-23T15:35:33.422Z",
+    "updated": "2018-07-23T15:35:33.422Z",
+    "url": "https://www.youtube.com/watch?v=rAof9Ld5sOg"
+  },
+  "pk": 4
+},
+{
+  "model": "courses.video",
+  "fields": {
+    "owner": 3,
+    "title": "The real meaning of entrepreneur",
+    "created": "2018-07-23T15:57:57.978Z",
+    "updated": "2018-07-23T15:57:57.979Z",
+    "url": "https://youtu.be/Tu5fvQz70Oo"
+  },
+  "pk": 5
+},
+{
+  "model": "courses.video",
+  "fields": {
+    "owner": 3,
+    "title": "Importance of Entrepreneurship",
+    "created": "2018-07-23T16:02:17.568Z",
+    "updated": "2018-07-23T16:02:17.568Z",
+    "url": "https://www.youtube.com/watch?v=K4IrfaIIFdQ"
+  },
+  "pk": 6
+},
+{
+  "model": "courses.video",
+  "fields": {
+    "owner": 4,
+    "title": "Electrical Engineering: Basic Concepts ",
+    "created": "2018-07-23T16:17:08.873Z",
+    "updated": "2018-07-23T16:17:08.873Z",
+    "url": "https://youtu.be/s6hRPyjTx6k?list=PLX2gX-ftPVXXAQHPsgcokk4aCHZUKFuho"
+  },
+  "pk": 7
+},
+{
+  "model": "courses.video",
+  "fields": {
+    "owner": 4,
+    "title": " Importance of Basic Electrical Engineering | Objective questions of Basic Electrical engineering",
+    "created": "2018-07-23T16:20:17.087Z",
+    "updated": "2018-07-23T16:20:17.087Z",
+    "url": "https://www.youtube.com/watch?v=WNIonpttS5g"
+  },
+  "pk": 8
+}
+]

@@ -6,7 +6,7 @@ from courses.models import Course
 class course_enrollment(models.Model):
     student = models.ManyToManyField(User, related_name='courses_enrolled')
     course = models.ManyToManyField(Course, related_name='courses')
-    studentName = models.CharField(max_length=200)
+    #studentName = models.CharField(max_length=200)
     date_enrolled = models.DateTimeField(auto_now_add=True)
 
     class Meta:
@@ -16,7 +16,7 @@ class course_enrollment(models.Model):
 class course_unenrollment(models.Model):
     student = models.ManyToManyField(User, related_name='courses_unenrolled')
     course = models.ManyToManyField(Course, related_name='coursesUn')
-    studentName = models.CharField(max_length=200)
+    #studentName = models.CharField(max_length=200)
     date_unenrolled = models.DateTimeField(auto_now_add=True)
 
     class Meta:

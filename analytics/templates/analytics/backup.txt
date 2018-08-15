@@ -1,0 +1,210 @@
+ window.onload = function() { 
+       // my django variables go here 
+       //i will need an array of courses and the total number of students in it
+var ctx = document.getElementById("pieChartStudentCourse").getContext('2d');
+var myChart = new Chart(ctx, {
+    type: 'pie',
+    data: { 
+             
+            datasets: [{
+                label: 'Number of students per course',                  
+                backgroundColor: [
+                    'rgba(255,0,0, 0.7)',
+                    'rgba(0,200,0, 0.7)',
+                    'rgba( 200,255,0,0.7)',
+                    'rgba(0,155,255, 0.7)',
+                    'rgba(255,0,0, 0.7)',
+                    'rgba(0,200,0, 0.7)',
+                    'rgba( 200,255,0,0.7)',
+                    'rgba(0,155,255, 0.7)',
+                    'rgba(255,0,0, 0.7)',
+                    'rgba(0,200,0, 0.7)',
+                    'rgba( 200,255,0,0.7)',
+                    'rgba(0,155,255, 0.7)'
+                     
+                ],
+                borderColor: [
+                    
+                ],
+                borderWidth: 1
+                 }]
+             },
+            options: {
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero:true
+                        }
+                    }]
+                }
+            }
+        });
+        
+        var ctx = document.getElementById("enrolledUnrolledColumnChart").getContext('2d');
+var myChart1 = new Chart(ctx, {
+    type: 'bar',
+    data: { 
+            labels: ["enroll","unenroll","progress","school","mathematics","anjelo"],
+            datasets: [{
+                label: 'Number of students per course',                  
+                backgroundColor: [
+                    'rgba(255,0,0, 0.7)',
+                    'rgba(0,200,0, 0.7)',
+                    'rgba( 200,255,0,0.7)',
+                    'rgba(0,155,255, 0.7)',
+                    'rgba(255,0,0, 0.7)',
+                    'rgba(0,200,0, 0.7)',
+                    'rgba( 200,255,0,0.7)',
+                    'rgba(0,155,255, 0.7)',
+                    'rgba(255,0,0, 0.7)',
+                    'rgba(0,200,0, 0.7)',
+                    'rgba( 200,255,0,0.7)',
+                    'rgba(0,155,255, 0.7)'
+                     
+                ],
+                borderColor: [
+                    
+                ],
+                borderWidth: 1
+                 }]
+             },
+            options: {
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero:true
+                        }
+                    }]
+                }
+            }
+        });
+        
+        
+      {% for course in courses %}
+          myChart1.data.datasets[0].label ="{{course.title}}";
+           myChart1.data.datasets[0].data.push("{{course.total_students}}")  
+      {% endfor %} 
+
+      {% for course in courses %}            
+           myChart.data.labels.push("{{course.title}}")   
+           myChart.data.datasets[0].data.push("{{course.total_students}}") 
+      {% endfor %} 
+      myChart1.update();
+      myChart.update();     
+           
+        
+    }
+
+
+
+
+
+    ///my line chart for comparison
+    
+
+    
+ window.onload = function() { 
+        var labells = [];
+        var datax = [];
+        var year;
+
+        $.ajax({
+        type: "GET",
+        url: "{% url "api-data" %}",
+        dataType: 'json',
+        success: function(data){
+            labells = data.labels_y
+            datax = data.data_x
+            year = data.year
+            console.log(data)
+            enrollmentLine()
+        }       
+        });
+       // my django variables go here 
+       //i will need an array of courses and the total number of students in it
+    function enrollmentLine(){
+             
+       var ctx3 = document.getElementById("lineBar").getContext('2d');     
+        var myChart3 = new Chart(ctx3, { 
+            type: 'line',
+            data: {
+            labels: ["j","f", "m" ,"a","m", "j","j","a","s","o","n","d" ],
+            datasets: [ {
+                label: labells[0],
+                data: datax[0],
+                fill: false,
+                backgroundColor: [
+                    'rgba(0,255,255, 0.7)'],
+                borderColor: [
+                    'rgba(0,255,255, 0.7)'],
+            },
+            {
+                label: labells[1],
+                data: datax[1],
+                fill: false,
+                backgroundColor: [
+                    'rgba(0,255,0, 0.7)'],
+                borderColor: [
+                    'rgba(0,255,0, 0.7)'],
+            }
+            ,
+            {
+                label: labells[2],
+                data: datax[2],
+                fill: false,
+                backgroundColor: [
+                    'rgba(255,0,255, 0.7)'],
+                borderColor: [
+                    'rgba(255,0,255, 0.7)'],
+            },
+            {
+                label: labells[3],
+                data: datax[3],
+                fill: false,
+                backgroundColor: [
+                    'rgba(0,0,255,0, 0.7)'],
+                borderColor: [
+                    'rgba(0,0,255,0, 0.7)'],
+            },
+            {
+                label: labells[4],
+                data: datax[4],
+                fill: false,
+                backgroundColor: [
+                    'rgba(0,0,0,0.7)'],
+                borderColor: [
+                    'rgba(0,0,0, 0.7)'],
+                
+            }
+               
+               ]
+             }
+            
+        });
+        function addData(myChart3, labells, datax) {
+            myChart3.data.labels.push(labells);
+            myChart3.data.datasets.forEach((datax) => {
+                var i = 0;
+                dataset.data.push(datax[i]);
+                i++;
+            });
+            myChart3.update();
+
+            }
+
+             
+        // 
+        // myChart.data.datasets[1].label = "john"
+        // myChart.data.datasets[2].label =  "susan"
+        // myChart.update()
+        // for(var i=0; i < labells.length;i++){
+        //     myChart.data.datasets[i].label = labells[i]
+        //     for(var j=0; j< datax[i].length; j++){
+        //         myChart.data.datasets[i].data[j].push(datax[j])
+        //         myChart.update()
+        //     }
+       
+        }
+        
+
+    }

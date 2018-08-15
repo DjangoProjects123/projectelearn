@@ -3,90 +3,290 @@
 {% block title %}
     Analytics
 {% endblock %}
+
 {% block extrahead %}
 
-       <script>
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/css/bootstrap-datepicker.css" rel="stylesheet">
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/js/bootstrap-datepicker.js"></script>
+
+    <script src="{% static "js/jquery3.3.1.js" %} "></script>
+<script type="text/javascript"> 
+    
+ window.onload = function() { 
+
+     //calling the api
+    var labells = [];
+        var datax = [];
+        var year;
+        
+        var backgroundColor= [
+                          'rgba(255,0,0, 1)',
+                          'rgba(0,255,0, 1)',
+                          'rgba(0,0,255, 1)',
+                          'rgba(255,0,255, 1)',
+                          'rgba(0,0,0,1)',
+                          'rgba(0,255,255,1)'];
+        $.ajax({
+        type: "GET",
+        url: "{% url "api-enrollments-monthly" %}",
+        dataType: 'json',
+        success: function(data){
+            labells = data.labels_y
+            datax = data.data_x
+            
+            console.log(data)
+            enrollmentLine()
+           
+        }       
+        });
        
-       window.onload = function() {
 
-var chart = new CanvasJS.Chart("chartContainer", {
-	animationEnabled: true,
-	title: {
-		text: "Desktop Search Engine Market Share - 2016"
-	},
-	data: [{
-		type: "pie",
-		startAngle: 240,
-		yValueFormatString: "##0.00'%'",
-		indexLabel: "{label} {y}",
-		dataPoints: [
-			{y: 79.45, label: "Google"},
-			{y: 7.31, label: "Bing"},
-			{y: 7.06, label: "Baidu"},
-			{y: 4.91, label: "Yahoo"},
-			{y: 1.26, label: "Others"}
-		]
-	}]
-});
-chart.render();
+       //pie chart for number of students in my course
+var ctx = document.getElementById("pieChartStudentCourse").getContext('2d');
+var myChart = new Chart(ctx, {
+    type: 'pie',
+    data: { 
+             
+            datasets: [{
+                label: 'Number of students per course',                  
+                backgroundColor: [
+                    'rgba(255,0,0, 0.7)',
+                    'rgba(0,255,0, 0.7)',
+                    'rgba( 0,0,255,0.7)',
+                    'rgba(0,255,255, 0.7)',
+                    'rgba(255,255,0, 0.7)',
+                    'rgba(0,0,0, 0.7)',
+                    'rgba( 200,255,0,0.7)',
+                    'rgba(0,155,255, 0.7)',
+                    'rgba(255,0,0, 0.7)',
+                    'rgba(0,200,0, 0.7)',
+                    'rgba( 200,255,0,0.7)',
+                    'rgba(0,155,255, 0.7)'
+                     
+                ],
+                borderColor: [
+                    
+                ],
+                borderWidth: 1
+                 }]
+             },
+            options: {
+                
+             title: {
+                            display: true,
+                            text:"Number of Students in Each Course",
+                        } 
+            }
+        });
+//bar chart for comparing enrolls to unenrolls 
+var ctx1 = document.getElementById("barChartStudentCourse").getContext('2d');
+var myChart1 = new Chart(ctx1, {
+    type: 'bar',
+    data: { 
+        labels:['Thermo dynamics','Fluid Dynamics','Introduction to music'],
+            datasets: [{
+                label: 'Enrollment', 
+                data: [3,4,5],                 
+                backgroundColor: [
+                    'rgba(0,255,0, 0.7)', 
+                    'rgba(0,255,0, 0.7)',
+                    'rgba(0,255,0, 0.7)' 
+ 
+                ], 
+                borderWidth: 1
+                 },
+                 {
+                label: 'Unnrollment', 
+                data: [1,5,7],                 
+                backgroundColor: [
+                'rgba(255,0,0, 0.7)',
+                    'rgba(255,0,0, 0.7)',  
+                    'rgba(255,0,0, 0.7)'
+                    
+                ], 
+                borderWidth: 1
+                 } 
+                 ]
+             },
+            options: {
+                
+             title: {
+                     display: true,
+                    text:"Comparing Enrollment to Unenrollment for all Courses",
+                        },
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero:true,
+                            callback: function(value) {if (value % 1 === 0) {return value;}}
 
-}
-       </script>
+                        }
+                    }]
+                }
+            }
+        });    
+
+  //chart to compare the enrollments monthly
+
+    function enrollmentLine(){
+             
+             var ctx3 = document.getElementById("lineChartStudentCourse").getContext('2d');     
+              var myChart3 = new Chart(ctx3, { 
+                  type: 'line',
+                  data: {
+                  labels: ["January","February", "March" ,"April","May", "June","July","August","September","October","November","December" ],
+                   datasets:[  
+                      {
+                      label: [],
+                      data: [],
+                      fill: '',
+                      backgroundColor: ['rgba(255,255,255,1)'],
+                      borderColor: [ 'rgba(255,255,255,1)'], },
+                    {
+                      label: [],
+                      data: [],
+                      fill: '',
+                      backgroundColor: ['rgba(255,255,255,1)'],
+                      borderColor: ['rgba(255,255,255,1)' ],},
+                  {
+                      label:[],
+                      data: [],
+                      fill: '',
+                      backgroundColor: ['rgba(255,255,255,1)'],
+                      borderColor:  ['rgba(255,255,255,1)'],},
+                  {
+                      label:[],
+                      data: [],
+                      fill: '',
+                      backgroundColor: ['rgba(255,255,255,1)'],
+                      borderColor: ['rgba(255,255,255,1)' ],},
+                  {
+                      label: [],
+                      data:  [],
+                      fill:  '',
+                      backgroundColor: ['rgba(255,255,255,1)'],
+                      borderColor: ['rgba(255,255,255,1)' ],},
+                  {
+                      label: [],
+                      data:  [],
+                      fill:  '',
+                      backgroundColor: ['rgba(255,255,255,1)'],
+                      borderColor: ['rgba(255,255,255,1)' ],                    
+                  } ,
+                  {
+                      label: [],
+                      data:  [],
+                      fill:  '',
+                      backgroundColor: ['rgba(255,255,255,1)'],
+                      borderColor: ['rgba(255,255,255,1)' ],                    
+                  } 
+                  ,
+                  {
+                      label: [],
+                      data:  [],
+                      fill:  '',
+                      backgroundColor: ['rgba(255,255,255,1)'],
+                      borderColor: ['rgba(255,255,255,1)' ],                    
+                  } 
+                  ,
+                  {
+                      label: [],
+                      data:  [],
+                      fill:  '',
+                      backgroundColor: ['rgba(255,255,255,1)'],
+                      borderColor: ['rgba(255,255,255,1)' ],                    
+                  } 
+                     
+                     
+                   ]  
+                   },
+                   options: {
+                    title: {
+                            display: true,
+                            text: 'The Number of students enrolled in year '+ '2018'
+                        },
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero:true,
+                            callback: function(value) {if (value % 1 === 0) {return value;}}
+
+                        }
+                    }]
+                }
+            }
+                  
+              }); 
+              
+for(var i = 0; i < labells.length; i++){
+    myChart3.data.datasets[i].backgroundColor = backgroundColor[i];
+        myChart3.data.datasets[i].borderColor = backgroundColor[i];
+        myChart3.data.datasets[i].fill = false
+     for(var j = 0; j < 12; j++){ 
+        myChart3.data.datasets[i].data.push(datax[i][j])  
+        console.log(datax[i][j]);
+        }
+        myChart3.data.datasets[i].label = labells[i];
+     }
+    myChart3.update();
+    }
+
+      {% for course in courses %}            
+           myChart.data.labels.push("{{course.title}}")   
+           myChart.data.datasets[0].data.push("{{course.total_students}}") 
+      {% endfor %} 
+      myChart.update();     
+
+    }
+</script> 
+
+
 
 {% endblock %}
+
 {% block content %}
 
 <!-- Home -->
-
-<div class="home">	 
-	</div>
+ 
 
 	 
 			<div class="container">
 				<div class="row">
 					<div class="col">
-						<div class="section_title text-center">
-							<h1>Course Analytics</h1>
-						</div>
+						 
+                        <h1>Course Analytics</h1>
                         <h1><a href="{% url "manage_course_list" %}">Back to My Courses</a></h1>
 					</div>
 				</div>
-	
-				<div class="row course_boxes">
-					 
-                </div>
+	 
                 
                 <!-- Popular -->
 <!--displaying the analytics-->
 	<div class="popular page_section">
-            <div class="container">
+            <div class="container" style="background-color:floralwhite">
                      
                 <div style="margin-top: 80px"></div>
                 <div class="row row-eq-height">
-                    <div class="col-lg-12">
-                        <canvas  id="pieChartStudentCourse" style="height: 80%; max-width:100%; margin: 0px auto;"></canvas>
-
-                    </div>
-                </div>
-                     
-
-                <div style="margin-top: 80px"></div>
-                <h1><a href="{% url "analytics_instructor_enrollment" %}">Enrollment Details</a></h1>
-                  <div class="row row-eq-height">
-                    <div class="col-lg-3"></div>
-
                     <div class="col-lg-6">
-                        <canvas id="studentProgress"  style="height: 100%; max-width:100%; margin: 0px auto;"></canvas>                    
+                        <canvas  id="pieChartStudentCourse" style="height: 80%; max-width:100%; margin: 0px auto;"></canvas>
                     </div>
-                    <div class="col-lg-3">
-                            <ul>
-                             {% for course in courses %}            
-                                    <li>{{course.title}}</li>   
-                                    <li>{{course.total_students}}</li>
-                              {% endfor %} 
+                     <div class="col-lg-6">
+                        <canvas  id="barChartStudentCourse" style="height: 80%; max-width:100%; margin: 0px auto;"></canvas>
+                     </div>
+                </div> 
+                
+                <div style="margin-top: 80px"></div>
+                   <div class="row row-eq-height">
+                   
+                    <div class="col-lg-12">
+                         <canvas  id="lineChartStudentCourse" style="height: 80%; max-width:100%; margin: 0px auto;"></canvas>
 
-                            </ul>            
                     </div>
+
+ 
                   </div>
 
                   <div style="margin-top: 80px"></div>
@@ -98,47 +298,6 @@ chart.render();
 
     
 {% endblock %}
-
-
-<script type="text/javascript">
-    window.onload = function() { 
-       // my django variables go here 
-       //i will need an array of courses and the total number of students in it
-            var ctx = document.getElementById("pieChartStudentCourse").getContext('2d');
-            var myChart = new Chart(ctx, {
-                type: 'pie',
-                data: { 
-                        
-                        datasets: [{
-                            label: 'Number of students per course',                  
-                            backgroundColor: [
-                                'rgba(255,0,0, 0.7)',
-                                'rgba(0,200,0, 0.7)',
-                                'rgba( 200,255,0,0.7)',
-                                'rgba(0,155,255, 0.7)',
-                                                    
-                            ],
-                            borderColor: [
-                                
-                            ],
-                            borderWidth: 1
-                            }]
-                        },
-                        options: {
-                            scales: {
-                                yAxes: [{
-                                    ticks: {
-                                        beginAtZero:true
-                                    }
-                                }]
-                            }
-                        }
-                    });
-         
-        
-    }
-</script> 
-
 {%block domready}   
       
 {%endblock}
