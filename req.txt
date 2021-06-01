@@ -17,5 +17,5 @@ pytz==2018.5
 requests==2.19.1
 six==1.11.0
 tornado==5.1
-urllib3==1.23
+urllib3==1.26.5
 Whoosh==2.7.4
